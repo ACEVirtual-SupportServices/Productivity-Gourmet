@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Communications Management | Productivity Gourmet</title>
+    <meta
+      name="description"
+      content="Professional email and client communications management for service providers and executives. I manage your inbox, follow up your leads, and respond in your voice — so your business keeps moving whether you are at your desk or not."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&family=Work+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-K29156K1NJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-K29156K1NJ");
+    </script>
+    <style>
+      :root {
+        --turquoise: #0097b2;
+        --turquoise-dark: #007a91;
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --gray-50: #fafafa;
+        --gray-100: #f5f5f5;
+        --gray-200: #e5e5e5;
+        --gray-600: #525252;
+        --gray-800: #262626;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Work Sans", sans-serif;
+        color: var(--black);
+        background: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .skip-nav {
+        position: absolute;
+        top: -100%;
+        left: 1rem;
+        background: var(--turquoise);
+        color: var(--white);
+        padding: 0.75rem 1.5rem;
+        border-radius: 0 0 8px 8px;
+        font-weight: 600;
+        text-decoration: none;
+        z-index: 9999;
+        transition: top 0.3s;
+      }
+      .skip-nav:focus {
+        top: 0;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid var(--gray-200);
+      }
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--turquoise);
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--black);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .nav-links a:hover,
+      .nav-links a:focus {
+        color: var(--turquoise);
+        outline: 2px solid var(--turquoise);
+        outline-offset: 4px;
+        border-radius: 2px;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--black);
+        margin: 5px 0;
+      }
+      .page-hero {
+        padding: 10rem 2rem 5rem;
+        background: linear-gradient(
+          135deg,
+          var(--gray-50) 0%,
+          var(--white) 100%
+        );
+        text-align: center;
+      }
+      .page-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .page-hero .tagline {
+        font-size: 1.5rem;
+        color: var(--turquoise);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      .hero-desc {
+        font-size: 1.15rem;
+        color: var(--gray-600);
+        max-width: 700px;
+        margin: 0 auto 2rem;
+      }
+      .btn-hero {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--turquoise);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: all 0.3s ease;
+      }
+      .btn-hero:hover,
+      .btn-hero:focus {
+        background: var(--turquoise-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 151, 178, 0.25);
+      }
+      .availability-bar {
+        background: var(--gray-50);
+        border-top: 1px solid var(--gray-200);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 1.25rem 2rem;
+      }
+      .availability-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+      }
+      .availability-label {
+        font-weight: 700;
+        color: var(--black);
+        font-family: "DM Sans", sans-serif;
+      }
+      .availability-slots {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .slot-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--gray-600);
+      }
+      .slot-count {
+        background: var(--turquoise);
+        color: var(--white);
+        font-weight: 700;
+        font-size: 0.8rem;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "DM Sans", sans-serif;
+        flex-shrink: 0;
+      }
+      .slot-dot {
+        color: var(--gray-200);
+      }
+      .avail-link {
+        color: var(--turquoise);
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .avail-link:hover {
+        text-decoration: underline;
+      }
+      .content-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+      .featured-reset {
+        background: linear-gradient(135deg, #f0fafb 0%, #e4f5f8 100%);
+        border: 2px solid var(--turquoise);
+        border-radius: 16px;
+        padding: 3rem;
+        margin-bottom: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .featured-reset::after {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 151, 178, 0.07) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .featured-badge {
+        display: inline-block;
+        background: var(--turquoise);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding: 0.3rem 0.85rem;
+        border-radius: 50px;
+        margin-bottom: 1.25rem;
+      }
+      .featured-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      .featured-reset h2 {
+        font-size: 2.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .featured-price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--turquoise);
+        font-family: "DM Sans", sans-serif;
+        margin-bottom: 1.25rem;
+        line-height: 1;
+      }
+      .featured-price small {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--gray-600);
+        margin-left: 0.25rem;
+      }
+      .featured-desc {
+        color: var(--gray-600);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+      }
+      .featured-features {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+      .featured-features li {
+        padding: 0.45rem 0 0.45rem 1.5rem;
+        position: relative;
+        color: var(--gray-600);
+        font-size: 0.97rem;
+      }
+      .featured-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--turquoise);
+        font-weight: bold;
+      }
+      .btn-apply {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--turquoise);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+      .btn-apply:hover,
+      .btn-apply:focus {
+        background: var(--turquoise-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 151, 178, 0.25);
+      }
+      .featured-note {
+        font-size: 0.88rem;
+        color: var(--gray-600);
+        margin-top: 0.85rem;
+        font-style: italic;
+      }
+      .section-heading {
+        font-size: 1.9rem;
+        margin-bottom: 0.5rem;
+      }
+      .section-sub {
+        color: var(--gray-600);
+        margin-bottom: 2.5rem;
+        font-size: 1.05rem;
+      }
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0 3rem;
+      }
+      .pricing-card {
+        background: white;
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        padding: 2.5rem;
+        transition: all 0.3s ease;
+      }
+      .pricing-card:hover {
+        border-color: var(--turquoise);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 151, 178, 0.15);
+      }
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--turquoise);
+        font-family: "DM Sans", sans-serif;
+        margin-bottom: 1.5rem;
+      }
+      .features {
+        list-style: none;
+      }
+      .features li {
+        padding: 0.5rem 0 0.5rem 1.5rem;
+        position: relative;
+        color: var(--gray-600);
+      }
+      .features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--turquoise);
+        font-weight: bold;
+      }
+      .terms-box {
+        background: var(--gray-50);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-top: 1rem;
+      }
+      .terms-box h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.75rem;
+      }
+      .terms-box p {
+        color: var(--gray-600);
+        margin-bottom: 0.75rem;
+      }
+      .terms-box p:last-child {
+        margin-bottom: 0;
+      }
+      .cta-section {
+        background: var(--turquoise);
+        color: white;
+        padding: 5rem 2rem;
+        text-align: center;
+        margin-top: 4rem;
+      }
+      .cta-section h2 {
+        margin-bottom: 1rem;
+        font-size: 2.2rem;
+      }
+      .cta-section p {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        opacity: 0.95;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn-white {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: white;
+        color: var(--turquoise);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .btn-white:hover,
+      .btn-white:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        background: var(--gray-800);
+        color: var(--white);
+        padding: 4rem 2rem 2rem;
+      }
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+      .footer-column h4 {
+        margin-bottom: 1.5rem;
+      }
+      .footer-column ul {
+        list-style: none;
+      }
+      .footer-column ul li {
+        margin-bottom: 0.75rem;
+      }
+      .footer-column ul li a {
+        color: #999;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .footer-column ul li a:hover {
+        color: var(--turquoise);
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .social-links a:hover {
+        background: var(--turquoise);
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        text-align: center;
+        color: #999;
+      }
+      @media (max-width: 900px) {
+        .featured-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .featured-reset {
+          padding: 2rem 1.5rem;
+        }
+        .featured-reset h2 {
+          font-size: 1.65rem;
+        }
+        .featured-price {
+          font-size: 2rem;
+        }
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+          padding: 2rem;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .page-hero h1 {
+          font-size: 2rem;
+        }
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-container {
+          grid-template-columns: 1fr;
+        }
+        .availability-inner {
+          flex-direction: column;
+          gap: 0.75rem;
+          text-align: center;
+        }
+      }
+      .testimonial-section {
+        padding: 6rem 2rem;
+        background: var(--gray-50);
+      }
+      .testimonial-card {
+        max-width: 800px;
+        margin: 0 auto;
+        background: var(--white);
+        border-radius: 16px;
+        padding: 3rem;
+        border: 1px solid var(--gray-200);
+        position: relative;
+      }
+      .testimonial-card::before {
+        content: '\201C';
+        font-family: 'Fraunces', serif;
+        font-size: 8rem;
+        color: var(--turquoise);
+        opacity: 0.15;
+        position: absolute;
+        top: -1.5rem;
+        left: 2rem;
+        line-height: 1;
+      }
+      .testimonial-card blockquote {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--gray-800);
+        font-style: italic;
+        margin-bottom: 2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      .testimonial-logo {
+        height: 32px;
+        width: auto;
+        max-width: 120px;
+        object-fit: contain;
+        flex-shrink: 0;
+        display: block;
+      }
+      .testimonial-author-info strong {
+        display: block;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1rem;
+        color: var(--black);
+        margin-bottom: 0.2rem;
+      }
+      .testimonial-author-info span {
+        font-size: 0.9rem;
+        color: var(--gray-600);
+      }
+      @media (max-width: 768px) {
+        .testimonial-card {
+          padding: 2rem 1.5rem;
+        }
+        .testimonial-card blockquote {
+          font-size: 1.05rem;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Client Communications Management",
+        "url": "https://productivitygourmet.com/service-client-communications.html",
+        "provider": {
+          "@type": "ProfessionalService",
+          "name": "Productivity Gourmet",
+          "url": "https://productivitygourmet.com"
+        },
+        "description": "Professional email and client communications management for service providers, executives, and high-end businesses in the US, UK, and EMEA. I manage your inbox, follow up your leads, and respond in your voice so your client relationships never suffer from your absence.",
+        "areaServed": ["US", "GB", "AE", "EU"],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Service providers, executives, consultants, luxury businesses"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Communications Audit & System Build",
+            "price": "3000",
+            "priceCurrency": "USD",
+            "description": "One-time client communications audit and system build for service-based businesses with up to 12 months of backlog"
+          },
+          {
+            "@type": "Offer",
+            "name": "Communications Overhaul",
+            "price": "5000",
+            "priceCurrency": "USD",
+            "description": "Deep communications audit and system build for multi-year accumulated inboxes"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do you learn how I communicate with my clients?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Before I respond to anything on your behalf I complete a detailed Client Voice and Communications Brief with you. This covers your professional tone, how you open and close emails, your preferences on response length and formality, which clients require a different level of care, and examples of real emails you have sent that felt right. It also defines which topics require your direct input before any response goes out — pricing, contracts, complaints, anything with legal or financial exposure. Nothing leaves your inbox under your name until I understand exactly how you sound and where the limits are."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you handle lead follow-up without overstepping?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We agree on a qualification framework before work begins — what stage a lead is at, what response they receive at each stage, and what triggers a flag to you before anything goes out. Budget discussions, scope decisions, and anything requiring a judgment call on your part get flagged first. Everything else is handled according to agreed templates and standards. You define the boundaries; I operate within them consistently."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you manage CRM platforms or project management tools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. This service is email only. I do not update CRM platforms, log communications in project management tools, or manage any software outside your email inbox. That boundary keeps the scope clean and the service focused on what it does best."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you handle confidential email content?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With the seriousness it deserves. I access your inbox through shared credentials via a password manager or delegated email access — never by forwarding to an external address. I never screenshot or copy email content outside the working environment. I work exclusively from a desktop, never a mobile device. When the engagement ends, access is revoked immediately through a clear offboarding process. A service agreement covering confidentiality is signed before any work begins."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Client Communications and Customer Service?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Client Communications is relationship-level communication — existing clients, warm leads, inbound enquiries from people who already know you. Higher stakes per message, voice-sensitive, represents you directly. Customer Service is transactional-level communication — customers with problems, questions, or complaints. Higher volume, more process-driven, less personal. If you are unsure which you need, the Fit Call will clarify it quickly. Some businesses use both."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between the Audit and the Overhaul?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Communications Audit and System Build at $3,000 is for inboxes with up to roughly 12 months of backlog. The Communications Overhaul at $5,000 is for multi-year accumulated inboxes — the kind where unread emails number in the tens of thousands and no system currently exists. Both result in the same outcome: a clean, organised inbox with a system built around how you work. The difference is scope and time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who is this service not right for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Someone who needs to approve every response before it goes out — the process defeats the purpose. Someone whose communications involve primarily regulated or legally sensitive content requiring professional qualifications to respond to. Someone who is not genuinely ready to delegate — not new to it, but resistant to it in practice. And someone looking only for a one-time cleanup with no interest in ongoing management. The audit exists, but the real value is in the retainer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does getting started look like?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fill out the enquiry form, we schedule a Fit Call to confirm it is the right fit, I send a proposal, you sign a service agreement, and the Communications Audit or Overhaul begins with full payment upfront. Once complete, monthly management begins with a 50% deposit for the first month and full payment from the second month onward."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this alongside your other services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Client Communications pairs naturally with Customer Service management for businesses handling both relationship-level and transactional communications. It also works alongside Virtual Assistant support for clients who need broader operational coverage beyond the inbox."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="nav-container">
+        <a
+          href="index.html"
+          class="logo"
+          aria-label="Productivity Gourmet - Home"
+          >Productivity Gourmet</a
+        >
+        <button
+          class="menu-toggle"
+          onclick="toggleMenu()"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">The Plog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <section class="page-hero" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">
+          Client Communications Management for Service Providers & Executives
+        </h1>
+        <p class="tagline">
+          Your inbox should not require your presence to function.
+        </p>
+        <p class="hero-desc">
+          Your clients followed up. Your leads responded to. Your inbox
+          organised and under control. Whether you are watching the game, taking
+          a proper holiday, or simply trying to do your best work without one
+          eye permanently on your email — I handle the communications that keep
+          your business moving, in your voice, to your standards.
+        </p>
+        <a
+          href="contact.html"
+          class="btn-hero"
+          aria-label="Apply for a spot in Client Communications Management"
+          >Apply for a Spot</a
+        >
+      </section>
+
+      <div
+        class="availability-bar"
+        role="region"
+        aria-label="Current client availability"
+      >
+        <div class="availability-inner">
+          <span class="availability-label">This Month's Openings:</span>
+          <div class="availability-slots">
+            <span class="slot-item"
+              ><span class="slot-count" aria-label="2 spots">2</span>
+              Essential</span
+            >
+            <span class="slot-dot" aria-hidden="true">·</span>
+            <span class="slot-item"
+              ><span class="slot-count" aria-label="1 spot">1</span>
+              Growth</span
+            >
+            <span class="slot-dot" aria-hidden="true">·</span>
+            <span class="slot-item"
+              ><span class="slot-count" aria-label="1 spot">1</span>
+              Premium</span
+            >
+            <span class="slot-dot" aria-hidden="true">·</span>
+            <span class="slot-item"
+              ><span class="slot-count" aria-label="2 spots">2</span> Comms
+              Audit</span
+            >
+          </div>
+          <a href="contact.html" class="avail-link">Secure your spot &rarr;</a>
+        </div>
+      </div>
+
+      <section class="content-section">
+        <article class="featured-reset" aria-labelledby="reset-heading">
+          <span class="featured-badge">Start Here</span>
+          <div class="featured-grid">
+            <div>
+              <h2 id="reset-heading">
+                Client Communications Audit &amp; System Build
+              </h2>
+              <div class="featured-price">$3,000 <small>one-time</small></div>
+              <p class="featured-desc">
+                Before ongoing management can work, your client communications
+                need a real foundation. This is a full audit — how you are
+                currently showing up to leads and existing clients, what is
+                getting missed, and what needs to change. You come out with a
+                clean inbox, a system built around how you actually work, and a
+                template library that sounds like you wrote every word yourself.
+              </p>
+              <p class="featured-desc">
+                For inboxes accumulated over several years — the kind where
+                unread emails number in the tens of thousands — I offer a deeper
+                Communications Overhaul at $5,000. The same outcome, built for a
+                significantly larger scope of work. Most clients move straight
+                to a monthly plan after either option. Think of it as the
+                foundation; the retainer is everything built on top of it.
+              </p>
+              <p class="featured-desc">
+                Most clients move straight to a monthly plan after the Audit.
+                Think of it as the setup; the retainer is the maintenance.
+              </p>
+              <a
+                href="contact.html"
+                class="btn-apply"
+                aria-label="Apply for Client Communications Audit and System Build"
+                >Apply for a Spot</a
+              >
+              <p class="featured-note">
+                Spots are limited and filled first come, first served.
+              </p>
+            </div>
+            <div>
+              <ul
+                class="featured-features"
+                aria-label="What is included in the Client Communications Audit"
+              >
+                <li>Full client communications audit across your inbox</li>
+                <li>Custom folder structure and smart filter setup</li>
+                <li>Priority labeling and flagging system</li>
+                <li>Lead follow-up qualification framework</li>
+                <li>Client Voice and Communications Brief</li>
+                <li>Template library (20+ custom templates in your voice)</li>
+                <li>No-forwarding and access security setup</li>
+                <li>Handoff documentation and walkthrough</li>
+                <li>7-day post-setup support included</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <h2 class="section-heading">Choose Your Monthly Plan</h2>
+        <p class="section-sub">
+          Ongoing client communications management billed monthly. All plans
+          include a weekly summary report.
+        </p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Essential</h3>
+            <div class="price">$900/month</div>
+            <ul class="features">
+              <li>1 inbox</li>
+              <li>5x weekly monitoring Monday to Friday</li>
+              <li>Lead follow-up and client correspondence</li>
+              <li>Response drafting using approved voice and templates</li>
+              <li>Priority flagging and inbox triage</li>
+              <li>Weekly summary report</li>
+              <li>Response time: 24hr</li>
+            </ul>
+          </div>
+          <div class="pricing-card">
+            <h3>Growth</h3>
+            <div class="price">$1,400/month</div>
+            <ul class="features">
+              <li>2 inboxes</li>
+              <li>Daily Monday to Friday monitoring</li>
+              <li>Everything in Essential</li>
+              <li>Expanded template library</li>
+              <li>Full inbox organisation and archiving</li>
+              <li>Bi-weekly performance report</li>
+              <li>Response time: Same-day priority</li>
+            </ul>
+          </div>
+          <div class="pricing-card">
+            <h3>Premium</h3>
+            <div class="price">$2,000/month</div>
+            <ul class="features">
+              <li>Up to 3 inboxes</li>
+              <li>Daily monitoring including urgent Saturday coverage</li>
+              <li>Everything in Growth</li>
+              <li>
+                Full inbox management, organisation, archiving, and weekly inbox
+                zero protocol
+              </li>
+              <li>Monthly strategy session</li>
+              <li>
+                Response time: Same-day priority, urgent flagging within 2hr
+              </li>
+            </ul>
+          </div>
+        </div>
+
+<div class="terms-box">
+    <h3>Payment Terms</h3>
+    <p>Monthly services invoiced 1st of month, due within 5 days. Client Communications Audit &amp; System Build is billed in full upfront.</p>
+    <p><em>Need pricing for clients in Nigeria or select African markets? <a href="contact.html" style="color:var(--turquoise);">Contact me</a> for localized rates.</em></p>
+</div>
+</section>
+
+        <section class="content-section">
+          <h2>Who This Service Is For</h2>
+          <p style="margin-top: 1rem">
+            Service providers, consultants, and executives in the US, UK, UAE,
+            and across EMEA who are managing high-stakes client relationships
+            and cannot afford for communications to slip. Professionals whose
+            inbox is a direct reflection of their brand — where a delayed
+            response to the wrong person has real consequences.
+          </p>
+          <p style="margin-top: 1rem">
+            This service works particularly well for independent professionals
+            and small firms with no dedicated communications support — coaches,
+            consultants, designers, lawyers, financial advisors, agency owners —
+            who need a capable, discreet operational partner handling their
+            correspondence with the same care they would apply themselves.
+          </p>
+          <p style="margin-top: 1rem">
+            It is not right for someone who needs to approve every response
+            before it goes out, whose communications involve primarily regulated
+            or legally sensitive content requiring professional qualifications,
+            or who is not genuinely ready to hand over inbox access. The Fit
+            Call is where we establish whether this is the right fit — for both
+            of us.
+          </p>
+
+          <h2 style="margin-top: 3rem">You Might Also Need</h2>
+          <p style="margin-top: 1rem">
+            If you are managing client-level communications through this
+            service, you may also have a separate stream of customer-facing
+            communications — order issues, support requests, transactional
+            enquiries — that require a different kind of handling. That is a
+            distinct service. I manage it separately under
+            <a
+              href="service-customer-service.html"
+              style="color: var(--turquoise)"
+              >Customer Service Management</a
+            >. Many businesses need both, and they work well together without
+            overlap.
+          </p>
+          <p style="margin-top: 1rem">
+            If you need broader operational support beyond the inbox — research,
+            task management, process design, or automation — my
+            <a
+              href="service-virtual-assistant.html"
+              style="color: var(--turquoise)"
+              >Virtual Assistant service</a
+            >
+            covers that side of your business.
+          </p>
+          <p style="margin-top: 1rem">
+            If you are also managing a social media presence with high DM volume
+            — brand enquiries, collaboration requests, fan messages — I handle
+            that separately under
+            <a href="service-social-media.html" style="color: var(--turquoise)"
+              >Social Media Inbox Management</a
+            >.
+          </p>
+      </section>
+
+      <section
+        class="content-section"
+        style="border-top: 1px solid var(--gray-200)"
+      >
+        <h2>Frequently Asked Questions</h2>
+
+        <h3 style="margin-top: 2rem">
+          How do you learn how I communicate with my clients?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          Before I respond to anything on your behalf I complete a detailed
+          Client Voice and Communications Brief with you. This covers your
+          professional tone, how you open and close emails, your preferences on
+          response length and formality, which clients require a different level
+          of care, and examples of real emails you have sent that felt right. It
+          also defines which topics require your direct input before any
+          response goes out — pricing, contracts, complaints, anything with
+          legal or financial exposure. Nothing leaves your inbox under your name
+          until I understand exactly how you sound and where the limits are.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          How do you handle lead follow-up without overstepping?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          We agree on a qualification framework before work begins — what stage
+          a lead is at, what response they receive at each stage, and what
+          triggers a flag to you before anything goes out. Budget discussions,
+          scope decisions, and anything requiring a judgment call on your part
+          get flagged first. Everything else is handled according to agreed
+          templates and standards. You define the boundaries; I operate within
+          them consistently.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          Do you manage CRM platforms or project management tools?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          No. This service is email only. I do not update CRM platforms, log
+          communications in project management tools, or manage any software
+          outside your email inbox. That boundary keeps the scope clean and the
+          service focused on what it does best.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          How do you handle confidential email content?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          With the seriousness it deserves. I access your inbox through shared
+          credentials via a password manager or delegated email access — never
+          by forwarding to an external address. I never screenshot or copy email
+          content outside the working environment. I work exclusively from a
+          desktop, never a mobile device. When the engagement ends, access is
+          revoked immediately through a clear offboarding process. A service
+          agreement covering confidentiality is signed before any work begins.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          What is the difference between Client Communications and Customer
+          Service?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          Client Communications is relationship-level communication — existing
+          clients, warm leads, inbound enquiries from people who already know
+          you. Higher stakes per message, voice-sensitive, represents you
+          directly. Customer Service is transactional-level communication —
+          customers with problems, questions, or complaints. Higher volume, more
+          process-driven, less personal. If you are unsure which you need, the
+          Fit Call will clarify it quickly. Some businesses use both.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          What is the difference between the Audit and the Overhaul?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          The Communications Audit and System Build at $3,000 is for inboxes
+          with up to roughly 12 months of backlog. The Communications Overhaul
+          at $5,000 is for multi-year accumulated inboxes — the kind where
+          unread emails number in the tens of thousands and no system currently
+          exists. Both result in the same outcome: a clean, organised inbox with
+          a system built around how you work. The difference is scope and time.
+        </p>
+
+        <h3 style="margin-top: 2rem">Who is this service not right for?</h3>
+        <p style="margin-top: 0.5rem">
+          Someone who needs to approve every response before it goes out — the
+          process defeats the purpose. Someone whose communications involve
+          primarily regulated or legally sensitive content requiring
+          professional qualifications to respond to. Someone who is not
+          genuinely ready to delegate — not new to it, but resistant to it in
+          practice. And someone looking only for a one-time cleanup with no
+          interest in ongoing management. The audit exists, but the real value
+          is in the retainer.
+        </p>
+
+        <h3 style="margin-top: 2rem">What does getting started look like?</h3>
+        <p style="margin-top: 0.5rem">
+          Fill out the enquiry form, we schedule a Fit Call to confirm it is the
+          right fit, I send a proposal, you sign a service agreement, and the
+          Communications Audit or Overhaul begins with full payment upfront.
+          Once complete, monthly management begins with a 50% deposit for the
+          first month and full payment from the second month onward.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          Can I use this alongside your other services?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          Yes. Client Communications pairs naturally with Customer Service
+          management for businesses handling both relationship-level and
+          transactional communications. It also works alongside Virtual
+          Assistant support for clients who need broader operational coverage
+          beyond the inbox. How that combination works in practice is something
+          we work out during the Fit Call.
+        </p>
+      </section>
+
+<section class="testimonial-section" aria-labelledby="testimonial-heading">
+        <div class="content-section">
+          <div style="text-align:center; margin-bottom:3rem;">
+            <h2 id="testimonial-heading">What Clients Say</h2>
+            <p style="color:var(--gray-600); font-size:1.05rem; margin-top:0.5rem;">Real feedback from people I have worked with</p>
+          </div>
+          <div class="testimonial-card">
+            <blockquote>
+              "Amarachi gets the job done. Her ability to work with minimal supervision — taking initiative in dealing with clients — and her understanding of what it takes to keep things running smoothly made the difference."
+            </blockquote>
+           <div class="testimonial-author">
+              <a href="https://mobility.com.ng/" target="_blank" rel="noopener noreferrer" aria-label="Mobility Nigeria website">
+                <img src="/mobility_nigeria.png" alt="Mobility Nigeria logo" class="testimonial-logo">
+              </a>
+              <div class="testimonial-author-info">
+                <a href="https://mobility.com.ng/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+                  <strong>Mr. Oluyomi</strong>
+                </a>
+                <span>CEO, Mobility Nigeria</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section" aria-labelledby="cta-heading">
+        <h2 id="cta-heading">Your Inbox Should Not Need You to Function</h2>
+        <p>
+          Your clients and leads deserve consistent, professional responses
+          whether you are at your desk or not. I make that happen.
+        </p>
+        <a
+          href="contact.html"
+          class="btn-white"
+          aria-label="Apply for a spot in Client Communications Management"
+          >Apply for a Spot</a
+        >
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h4>Productivity Gourmet</h4>
+          <p style="color: #999; margin-bottom: 1.25rem">
+            Crafting Success From Your Stumbles
+          </p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/productivity-gourmet"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in" aria-hidden="true"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/productivity_gourmet/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram" aria-hidden="true"></i
+            ></a>
+            <a
+              href="https://web.facebook.com/ProductivityGourmet/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f" aria-hidden="true"></i
+            ></a>
+            <a
+              href="https://www.threads.net/@productivity_gourmet"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Threads"
+              ><i class="fab fa-threads" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="service-customer-service.html">Customer Service</a>
+            </li>
+            <li>
+              <a href="service-client-communications.html"
+                >Client Communications</a
+              >
+            </li>
+            <li>
+              <a href="service-social-media.html"
+                >Social Media Inbox Management</a
+              >
+            </li>
+            <li>
+              <a href="service-virtual-assistant.html">Virtual Assistant</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">The Plog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="mailto:hello@productivitygourmet.com"
+                >hello@productivitygourmet.com</a
+              >
+            </li>
+            <li style="color: #999">EMEA Region</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Productivity Gourmet. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.querySelector(".nav-links");
+        const btn = document.querySelector(".menu-toggle");
+        const isOpen = nav.classList.toggle("active");
+        btn.setAttribute("aria-expanded", isOpen);
+      }
+    </script>
+  </body>
+</html>

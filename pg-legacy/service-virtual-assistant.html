@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Assistant for Professionals | Productivity Gourmet</title>
+    <meta
+      name="description"
+      content="AI-assisted virtual assistant support for service providers and professionals in the US, UK, and EMEA. I meet you at the level your business needs and build forward from there. Hourly and retainer options available."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&family=Work+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-K29156K1NJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-K29156K1NJ");
+    </script>
+
+    <style>
+      :root {
+        --turquoise: #0097b2;
+        --turquoise-dark: #007a91;
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --gray-50: #fafafa;
+        --gray-100: #f5f5f5;
+        --gray-200: #e5e5e5;
+        --gray-600: #525252;
+        --gray-800: #262626;
+      }
+
+     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Work Sans", sans-serif;
+        color: var(--black);
+        background: var(--white);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--turquoise);
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--black);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--turquoise);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--black);
+        margin: 5px 0;
+      }
+
+      /* Hero */
+      .page-hero {
+        padding: 10rem 2rem 4rem;
+        background: linear-gradient(
+          135deg,
+          var(--gray-50) 0%,
+          var(--white) 100%
+        );
+        text-align: center;
+      }
+
+      .page-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .page-hero .tagline {
+        font-size: 1.5rem;
+        color: var(--turquoise);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .page-hero p {
+        font-size: 1.15rem;
+        color: var(--gray-600);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Content */
+      .content-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .pricing-card {
+        background: white;
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        padding: 2.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .pricing-card:hover {
+        border-color: var(--turquoise);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 151, 178, 0.15);
+      }
+
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--turquoise);
+        margin-bottom: 1.5rem;
+      }
+
+      .features {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+
+      .features li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .features li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--turquoise);
+        font-weight: bold;
+      }
+
+      .cta-section {
+        background: var(--turquoise);
+        color: white;
+        padding: 4rem 2rem;
+        text-align: center;
+        margin-top: 0;
+        border-top: 4px solid var(--turquoise-dark);
+      }
+
+      .cta-section h2 {
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: white;
+        color: var(--turquoise);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      /* New styles for Executive VA section */
+      .pricing-card.featured {
+        border-color: var(--turquoise);
+        background: linear-gradient(160deg, #f0fbfd 0%, #ffffff 100%);
+      }
+
+      .pricing-card .badge {
+        display: inline-block;
+        background: var(--turquoise);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.85rem;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+      }
+
+      .exec-section {
+        background: var(--gray-50);
+        border-top: 1px solid var(--gray-200);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 4rem 2rem;
+      }
+
+      .exec-section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .exec-label {
+        display: inline-block;
+        background: var(--black);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.35rem 1rem;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+      }
+
+      .addon-callout {
+        background: var(--white);
+        border: 2px dashed var(--turquoise);
+        border-radius: 12px;
+        padding: 2rem 2.5rem;
+        margin-top: 2rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      .addon-callout .addon-icon {
+        font-size: 1.8rem;
+        flex-shrink: 0;
+        margin-top: 0.2rem;
+      }
+
+      .addon-callout h4 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+      }
+
+      .addon-callout p {
+        color: var(--gray-600);
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .addon-callout .addon-price {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--turquoise);
+        margin-top: 0.5rem;
+      }
+
+      .exec-intro {
+        max-width: 720px;
+        margin-bottom: 2.5rem;
+      }
+
+      .exec-intro p {
+        color: var(--gray-600);
+        margin-top: 0.75rem;
+        font-size: 1.05rem;
+        line-height: 1.7;
+      }
+
+      .terms-box {
+        background: var(--gray-50);
+        border-left: 4px solid var(--turquoise);
+        padding: 1.5rem 2rem;
+        border-radius: 0 8px 8px 0;
+        margin-top: 2.5rem;
+      }
+
+      .terms-box h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .terms-box p {
+        color: var(--gray-600);
+        font-size: 0.95rem;
+        margin-top: 0.4rem;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--gray-800);
+        color: var(--white);
+        padding: 4rem 2rem 2rem;
+      }
+
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-column h4 {
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-column ul li a {
+        color: #999;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-column ul li a:hover {
+        color: var(--turquoise);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--turquoise);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        text-align: center;
+        color: #999;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+          padding: 2rem;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .page-hero h1 {
+          font-size: 2rem;
+        }
+
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-container {
+          grid-template-columns: 1fr;
+        }
+
+        .addon-callout {
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+      }
+
+.testimonial-section {
+    padding: 3rem 2rem;
+    background: var(--gray-50);
+}
+
+.testimonial-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 3rem;
+    border: 1px solid var(--gray-200);
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '\201C';
+    font-family: 'Fraunces', serif;
+    font-size: 8rem;
+    color: var(--turquoise);
+    opacity: 0.15;
+    position: absolute;
+    top: -1.5rem;
+    left: 2rem;
+    line-height: 1;
+}
+
+.testimonial-card blockquote {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--gray-800);
+    font-style: italic;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--turquoise);
+    flex-shrink: 0;
+}
+
+.testimonial-author-info strong {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    color: var(--black);
+    margin-bottom: 0.2rem;
+}
+
+.testimonial-author-info span {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .testimonial-card blockquote {
+        font-size: 1.05rem;
+    }
+}
+
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Virtual Assistant & Executive VA Services",
+        "url": "https://productivitygourmet.com/service-virtual-assistant.html",
+        "provider": {
+          "@type": "ProfessionalService",
+          "name": "Productivity Gourmet",
+          "url": "https://productivitygourmet.com"
+        },
+        "description": "Virtual assistant and Executive VA support for service providers and professionals in the US, UK, and EMEA. From flexible hourly support to high-trust executive partnerships — structured around how your business actually works.",
+        "areaServed": ["US", "GB", "AE", "EU"],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Service providers, consultants, executives, design studios, law firms, content creators"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "The Quick Cup — Hourly Support",
+            "price": "35",
+            "priceCurrency": "USD",
+            "description": "Flexible hourly virtual assistant support with a 10-hour weekly minimum. No long-term commitment."
+          },
+          {
+            "@type": "Offer",
+            "name": "The Daily Grind — Monthly Package",
+            "price": "700",
+            "priceCurrency": "USD",
+            "description": "20 hours of consistent monthly VA support. Additional hours at $35/hr."
+          },
+          {
+            "@type": "Offer",
+            "name": "The Cold Brew — Priority Retainer",
+            "price": "1500",
+            "priceCurrency": "USD",
+            "description": "15 priority hours per month. Your tasks are always handled first with guaranteed faster turnaround. Additional hours at $35/hr."
+          },
+          {
+            "@type": "Offer",
+            "name": "The Sous Chef — Executive VA (30hrs)",
+            "price": "2800",
+            "priceCurrency": "USD",
+            "description": "Executive VA retainer — 30 hours of high-trust operational partnership per month. Additional hours at $47/hr."
+          },
+          {
+            "@type": "Offer",
+            "name": "The Executive Chef — Executive VA (40hrs)",
+            "price": "3500",
+            "priceCurrency": "USD",
+            "description": "Executive VA retainer — 40 hours of full operational command per month. Additional hours at $47/hr."
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does virtual assistant support from Productivity Gourmet actually involve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on where your business is and what it needs. I start with an honest assessment of what is breaking down operationally, then build support around that — research, task management, documentation, process design, automation, and general operational oversight. It is not a fixed menu. It is built around you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between the VA packages and the Executive VA packages?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard VA packages — The Quick Cup, The Daily Grind, and The Cold Brew — are built for business owners who need reliable, capable task and operational support. The Executive VA packages — The Sous Chef and The Executive Chef — are for founders and executives who need a high-trust operational partner operating with real authority: someone who manages systems, makes judgment calls, communicates on their behalf, and proactively identifies issues before being asked. The scope, the relationship, and the level of access are fundamentally different."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is The Cold Brew different from The Daily Grind?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Daily Grind gives you 20 hours of consistent monthly support — solid for ongoing operational needs. The Cold Brew gives you 15 hours, but your tasks are always handled first with a guaranteed faster turnaround and dedicated focus. It is for clients who cannot afford to wait, where speed and priority access matter more than raw hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is The Extra Course add-on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Extra Course is a structured 20-hour monthly block available exclusively to Executive VA retainer clients. It is elected in advance and paid alongside your retainer — it reserves that additional capacity specifically for your business. Unused hours carry over once and expire at the end of the following month. It is not ad-hoc overage; it is a committed extension of your retainer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the $47/hr rate available to standard VA clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The $47/hr rate applies exclusively to Executive VA retainer clients who need additional hours beyond what is included in their package. Standard VA packages carry their own overage rate of $35/hr."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you create social media content or graphics?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. I do not provide content creation or graphic design. I can publish pre-approved content on your behalf, but content strategy, copywriting, and design are outside this service. If you need someone to manage your social media inboxes — DMs, comments, brand enquiries — that is a separate service under Social Media Inbox Management."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you use AI in your work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I use AI tools for research, analysis, generating multiple perspectives on a problem, building automations, and speeding up documentation. It means faster turnaround without sacrificing accuracy. Everything that touches your sensitive business operations still has human judgment behind it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does getting started look like?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You fill out the enquiry form, we schedule a Fit Call to make sure there is a genuine match, I send a proposal, you sign a service agreement, and the first month begins with a 50% deposit. From the second month onward it is full payment. No surprises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you handle confidential business information?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Carefully and deliberately. I use a password manager, always push for shared access over direct password sharing, and I never work from a mobile device — so your business information is only ever handled in a secure, controlled environment. A service agreement covering confidentiality is signed before work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What timezone do you work in? Will that affect me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I work remotely and asynchronously, which means your location and mine rarely matter. Tasks are turned around without requiring us to be online simultaneously. If you prefer real-time collaboration in your timezone, I accommodate that too."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if you are unavailable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "I communicate ahead of time and provide alternatives. You are never left without notice or a plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I start with The Quick Cup and move to a retainer later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Hourly support is a sensible way to test the working relationship before committing to a retainer. Many clients make that transition once they see how the support fits their workflow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with clients who have no existing systems or processes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it is some of the most satisfying work I do. If you are new to delegation or building from scratch, we figure out the structure together. Starting without systems is not a disadvantage — it just means we build the right ones from the ground up."
+      }
+    }
+  ]
+}
+</script>
+  </head>
+  <body>
+    <a
+      href="#main-content"
+      class="skip-nav"
+      style="
+        position: absolute;
+        top: -100%;
+        left: 1rem;
+        background: #0097b2;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0 0 8px 8px;
+        font-weight: 600;
+        text-decoration: none;
+        z-index: 9999;
+        transition: top 0.3s;
+      "
+      >Skip to main content</a
+    >
+    <nav>
+      <div class="nav-container">
+        <a href="index.html" class="logo">Productivity Gourmet</a>
+        <button
+          class="menu-toggle"
+          onclick="toggleMenu()"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">The Plog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <section class="page-hero">
+        <h1>Virtual Assistant for Service Providers &amp; Busy Professionals</h1>
+        <p class="tagline">Stay Ahead of the Pressure</p>
+        <p>
+          Work and life have a way of compressing until there is no margin left
+          &mdash; for the people, rest, or thinking that actually matter. I meet you
+          at the level of support your business needs right now and push for
+          better. Not a task list. A genuine operational partnership.
+        </p>
+      </section>
+
+      <section class="content-section">
+        <h2>
+          Virtual Assistant Support &mdash; Structured Around How You Actually Work
+        </h2>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>The Quick Cup</h3>
+            <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 1rem; margin-top: -0.5rem;">Hourly Support</p>
+            <div class="price">$35/hour</div>
+            <ul class="features">
+              <li>Minimum 10 hours/week</li>
+              <li>Billed weekly</li>
+              <li>As-needed task support</li>
+              <li>Flexible, no long-term commitment</li>
+            </ul>
+          </div>
+
+          <div class="pricing-card">
+            <h3>The Daily Grind</h3>
+            <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 1rem; margin-top: -0.5rem;">Monthly Package</p>
+            <div class="price">$700/month</div>
+            <ul class="features">
+              <li>20 hours/month included</li>
+              <li>Consistent ongoing support</li>
+              <li>Billed monthly</li>
+              <li>Additional hours at $35/hr</li>
+              <li>Month-to-month, no lock-in</li>
+            </ul>
+          </div>
+
+          <div class="pricing-card">
+            <h3>The Cold Brew</h3>
+            <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 1rem; margin-top: -0.5rem;">Priority Retainer</p>
+            <div class="price">$1,500/month</div>
+            <ul class="features">
+              <li>15 priority hours/month</li>
+              <li>Your tasks handled first, always</li>
+              <li>Guaranteed faster turnaround</li>
+              <li>Dedicated focus on your business</li>
+              <li>Additional hours at $35/hr</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="terms-box">
+          <h3>Payment Terms</h3>
+          <p>Monthly services invoiced 1st of month, due within 5 days.</p>
+          <p><em>Need pricing for clients in Nigeria or select African markets? <a href="contact.html" style="color:var(--turquoise);">Contact me</a> for localized rates.</em></p>
+        </div>
+      </section>
+
+      <!-- Executive VA Section -->
+      <section class="exec-section" aria-labelledby="exec-heading">
+        <div class="exec-section-inner">
+          <span class="exec-label">Executive VA</span>
+          <div class="exec-intro">
+            <h2 id="exec-heading">For Founders Who Need More Than Task Support</h2>
+            <p>
+              This is not a bigger VA package. It is a different kind of relationship entirely.
+              Executive VA is for business owners who need someone operating with real authority &mdash;
+              managing systems end-to-end, communicating on their behalf, making judgment calls,
+              and proactively holding the operational layer of their business together.
+              Limited to two retainer clients at a time.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <div class="pricing-card featured">
+              <span class="badge">Executive VA</span>
+              <h3>The Sous Chef</h3>
+              <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 1rem; margin-top: -0.5rem;">30 Hours / Month</p>
+              <div class="price">$2,800/month</div>
+              <ul class="features">
+                <li>30 hours of Executive VA support</li>
+                <li>End-to-end systems management</li>
+                <li>Client communications in your voice</li>
+                <li>Proactive operational oversight</li>
+                <li>CRM &amp; workflow management</li>
+                <li>Inbox &amp; calendar management</li>
+                <li>Billed monthly &mdash; 50% deposit, month one</li>
+                <li>Additional hours at $47/hr</li>
+              </ul>
+            </div>
+
+            <div class="pricing-card featured">
+              <span class="badge">Executive VA</span>
+              <h3>The Executive Chef</h3>
+              <p style="color: var(--gray-600); font-size: 0.9rem; margin-bottom: 1rem; margin-top: -0.5rem;">40 Hours / Month</p>
+              <div class="price">$3,500/month</div>
+              <ul class="features">
+                <li>40 hours of Executive VA support</li>
+                <li>Full operational command of your backend</li>
+                <li>Client communications in your voice</li>
+                <li>Proactive issue identification &amp; resolution</li>
+                <li>CRM, workflow &amp; project management</li>
+                <li>Inbox, calendar &amp; team coordination</li>
+                <li>Billed monthly &mdash; 50% deposit, month one</li>
+                <li>Additional hours at $47/hr</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="addon-callout" aria-label="The Extra Course add-on">
+            <div class="addon-icon">&#9749;</div>
+            <div>
+              <h4>The Extra Course &mdash; Executive Add-On</h4>
+              <p>
+                Need consistent capacity beyond your retainer every month? The Extra Course is a structured
+                20-hour block elected in advance and paid alongside your retainer. It reserves that
+                additional capacity specifically for your business &mdash; not ad-hoc overage, but a committed
+                extension of your partnership. Unused hours carry over once and expire at the end of the
+                following month. Available to Executive VA retainer clients only.
+              </p>
+              <div class="addon-price">$940/month</div>
+            </div>
+          </div>
+
+          <div class="terms-box" style="margin-top: 2rem;">
+            <h3>Executive VA Payment Terms</h3>
+            <p>First month begins with a 50% deposit. From the second month onward, full payment is due on the 1st, within 5 days. The Extra Course, if elected, is paid alongside your retainer.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>What This Virtual Assistant Service Actually Involves</h2>
+        <p>
+          You may have tools. You may even have half-built automations. You are
+          still doing everything yourself &mdash; because none of it is set up around
+          how your specific business actually runs.
+        </p>
+        <p style="margin-top: 1rem">
+          I come in, assess what is breaking your flow, and fix it. Research,
+          analysis, documentation, task management, process design, and
+          automation &mdash; built around your business, not borrowed from a template.
+          Where AI tools produce faster and more accurate results, I use them.
+          Where your operations require human judgment and discretion, that is
+          what you get.
+        </p>
+        <p style="margin-top: 1rem">
+          If you have no existing systems yet, that is not a problem. We build
+          them together. I am experienced working with business owners who are
+          new to delegation, and I approach that with the patience it deserves &mdash;
+          not as a limitation but as part of the work.
+        </p>
+        <p style="margin-top: 1rem">
+          The goal is an operation that holds up when you step away from it &mdash;
+          for an hour, a day, or a week &mdash; without anything unravelling behind
+          you.
+        </p>
+
+        <h2 style="margin-top: 3rem">Who The VA Packages Are Built For</h2>
+        <p>
+          Service providers, consultants, and professionals who are excellent at what they do
+          and increasingly stretched by everything around it. Business owners in the US, UK, UAE,
+          and across EMEA who need a capable operational partner &mdash; not someone to be micromanaged.
+          Founders who are AI-curious but not technical, and want support that bridges that gap
+          without making them feel behind. People who need someone who notices problems before
+          being told about them.
+        </p>
+
+        <h2 style="margin-top: 2.5rem">Who The Executive VA Packages Are Built For</h2>
+        <p>
+          Established founders and executives who have outgrown standard VA support and need
+          someone operating at a higher level of trust and autonomy. Business owners whose
+          communications, client relationships, and operational infrastructure require a partner
+          who thinks ahead &mdash; not just someone who executes. If your business cannot afford for
+          things to fall through the cracks, and you need someone in your corner who operates
+          like an extension of you rather than a hired hand, this is the right level.
+        </p>
+
+        <p style="margin-top: 1rem">
+          I also manage
+          <a href="service-client-communications.html" style="color: var(--turquoise)">client communications</a>,
+          <a href="service-customer-service.html" style="color: var(--turquoise)">customer service</a>, and
+          <a href="service-social-media.html" style="color: var(--turquoise)">social media inboxes</a>
+          &mdash; for clients who need support across more than one front.
+        </p>
+      </section>
+
+      <section
+        class="content-section"
+        style="border-top: 1px solid var(--gray-200)"
+        aria-labelledby="faq-heading"
+      >
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+
+        <h3 style="margin-top: 2rem">
+          What does virtual assistant support from Productivity Gourmet actually
+          involve?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          It depends on where your business is and what it needs. I start with
+          an honest assessment of what is breaking down operationally, then
+          build support around that &mdash; research, task management, documentation,
+          process design, automation, and general operational oversight. It is
+          not a fixed menu. It is built around you.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          What is the difference between the VA packages and the Executive VA packages?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          The standard VA packages &mdash; The Quick Cup, The Daily Grind, and The Cold Brew &mdash; are built
+          for business owners who need reliable, capable task and operational support. The Executive
+          VA packages &mdash; The Sous Chef and The Executive Chef &mdash; are for founders and executives who
+          need a high-trust operational partner operating with real authority: someone who manages
+          systems, makes judgment calls, communicates on their behalf, and proactively identifies
+          issues before being asked. The scope, the relationship, and the level of access are
+          fundamentally different.
+        </p>
+
+        <h3 style="margin-top: 2rem">How is The Cold Brew different from The Daily Grind?</h3>
+        <p style="margin-top: 0.5rem">
+          The Daily Grind gives you 20 hours of consistent monthly support &mdash; solid for ongoing
+          operational needs. The Cold Brew gives you 15 hours, but your tasks are always handled
+          first with a guaranteed faster turnaround and dedicated focus. It is for clients who
+          cannot afford to wait, where speed and priority access matter more than raw hours.
+        </p>
+
+        <h3 style="margin-top: 2rem">What is The Extra Course add-on?</h3>
+        <p style="margin-top: 0.5rem">
+          The Extra Course is a structured 20-hour monthly block available exclusively to Executive
+          VA retainer clients. It is elected in advance and paid alongside your retainer &mdash; it
+          reserves that additional capacity specifically for your business. Unused hours carry over
+          once and expire at the end of the following month. It is not ad-hoc overage; it is a
+          committed extension of your retainer.
+        </p>
+
+        <h3 style="margin-top: 2rem">Is the $47/hr rate available to standard VA clients?</h3>
+        <p style="margin-top: 0.5rem">
+          No. The $47/hr rate applies exclusively to Executive VA retainer clients who need
+          additional hours beyond what is included in their package. Standard VA packages carry
+          their own overage rate of $35/hr.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          Do you create social media content or graphics?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          No. I do not provide content creation or graphic design. I can publish
+          pre-approved content on your behalf, but content strategy,
+          copywriting, and design are outside this service. If you need someone
+          to manage your social media inboxes &mdash; DMs, comments, brand enquiries &mdash;
+          that is a separate service I offer under
+          <a href="service-social-media.html" style="color: var(--turquoise)"
+            >Social Media Inbox Management</a
+          >.
+        </p>
+
+        <h3 style="margin-top: 2rem">How do you use AI in your work?</h3>
+        <p style="margin-top: 0.5rem">
+          I use AI tools for research, analysis, generating multiple
+          perspectives on a problem, building automations, and speeding up
+          documentation. It means faster turnaround without sacrificing
+          accuracy. Everything that touches your sensitive business operations
+          still has human judgment behind it.
+        </p>
+
+        <h3 style="margin-top: 2rem">What does getting started look like?</h3>
+        <p style="margin-top: 0.5rem">
+          You fill out the enquiry form, we schedule a Fit Call to make sure
+          there is a genuine match, I send a proposal, you sign a service
+          agreement, and the first month begins with a 50% deposit. From the
+          second month onward it is full payment. No surprises.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          How do you handle confidential business information?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          Carefully and deliberately. I use a password manager, always push for
+          shared access over direct password sharing, and I never work from a
+          mobile device &mdash; so your business information is only ever handled in a
+          secure, controlled environment. A service agreement covering
+          confidentiality is signed before work begins.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          What timezone do you work in? Will that affect me?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          I work remotely and asynchronously, which means your location and mine
+          rarely matter. Tasks are turned around without requiring us to be online
+          simultaneously. If you prefer real-time collaboration in your timezone,
+          I accommodate that too.
+        </p>
+
+        <h3 style="margin-top: 2rem">What happens if you are unavailable?</h3>
+        <p style="margin-top: 0.5rem">
+          I communicate ahead of time and provide alternatives. You are never
+          left without notice or a plan.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          Can I start with The Quick Cup and move to a retainer later?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          Yes. Hourly support is a sensible way to test the working relationship
+          before committing to a retainer. Many clients make that transition
+          once they see how the support fits their workflow.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          Do you work with clients who have no existing systems or processes?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          Yes, and it is some of the most satisfying work I do. If you are new
+          to delegation or building from scratch, we figure out the structure
+          together. Starting without systems is not a disadvantage &mdash; it just
+          means we build the right ones from the ground up.
+        </p>
+      </section>
+
+<section class="testimonial-section" aria-labelledby="testimonial-heading">
+    <div class="content-section">
+        <div style="text-align:center; margin-bottom:3rem;">
+            <h2 id="testimonial-heading">What Clients Say</h2>
+            <p style="color:var(--gray-600); font-size:1.05rem; margin-top:0.5rem;">Real feedback from people I have worked with</p>
+        </div>
+        <div class="testimonial-card">
+            <blockquote>
+                "Even before we started, she had already started putting systems in place &mdash; she showed me I could rely on her before compensation even came in. I don't have to move through my weeks with the same tasks over and over again, maybe once, but not three times like I used to."
+            </blockquote>
+            <div class="testimonial-author">
+                <a href="https://www.linkedin.com/in/elleonoraclay/" target="_blank" rel="noopener noreferrer" aria-label="Elleonora Clay on LinkedIn">
+                    <img src="/elleonora-clay.png" alt="Elleonora Clay, Content Marketer and Business Strategist">
+                </a>
+                <div class="testimonial-author-info">
+                    <a href="https://www.linkedin.com/in/elleonoraclay/" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
+                        <strong>Elleonora Clay</strong>
+                    </a>
+                    <span>Content Marketer &amp; Business Strategist</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+      <section class="cta-section">
+        <h2>Ready to Stop Running Your Business on Willpower Alone?</h2>
+        <p style="margin-bottom: 2rem">
+          Tell me where the pressure is. We will work out the right level of
+          support from there.
+        </p>
+        <a href="contact.html" class="btn">Get Started</a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column">
+          <h4>Productivity Gourmet</h4>
+          <p style="color: #999">Crafting Success From Your Stumbles</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/productivity-gourmet"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/productivity_gourmet/"
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://web.facebook.com/ProductivityGourmet/"
+              target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.threads.net/@productivity_gourmet"
+              target="_blank"
+              ><i class="fab fa-threads"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="service-customer-service.html">Customer Service</a>
+            </li>
+            <li>
+              <a href="service-client-communications.html"
+                >Client Communications</a
+              >
+            </li>
+            <li>
+              <a href="service-social-media.html"
+                >Social Media Inbox Management</a
+              >
+            </li>
+            <li>
+              <a href="service-virtual-assistant.html">Virtual Assistant</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">The Plog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="/cdn-cgi/l/email-protection#b8d0ddd4d4d7f8c8cad7dccddbccd1ced1ccc1dfd7cdcad5ddcc96dbd7d5"><span class="__cf_email__" data-cfemail="c3aba6afafac83b3b1aca7b6a0b7aab5aab7baa4acb6b1aea6b7eda0acae">[email&#160;protected]</span></a
+              >
+            </li>
+            <li style="color: #999">EMEA Region</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Productivity Gourmet. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("active");
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    </script>
+  <!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "855074007d52426099c30aa34d35ab37"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>

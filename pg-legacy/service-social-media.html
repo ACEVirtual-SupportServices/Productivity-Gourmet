@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DM & Inbox Management for Creators | Productivity Gourmet</title>
+    <meta
+      name="description"
+      content="Social media inbox management for content creators and influencers. I sort the brand deals from the noise, respond in your voice, and make sure nothing valuable gets buried. From $800/month."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&family=Work+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-K29156K1NJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-K29156K1NJ");
+    </script>
+    <style>
+      :root {
+        --turquoise: #0097b2;
+        --turquoise-dark: #007a91;
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --gray-50: #fafafa;
+        --gray-100: #f5f5f5;
+        --gray-200: #e5e5e5;
+        --gray-600: #525252;
+        --gray-800: #262626;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Work Sans", sans-serif;
+        color: var(--black);
+        background: var(--white);
+        line-height: 1.6;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .skip-nav {
+        position: absolute;
+        top: -100%;
+        left: 1rem;
+        background: var(--turquoise);
+        color: var(--white);
+        padding: 0.75rem 1.5rem;
+        border-radius: 0 0 8px 8px;
+        font-weight: 600;
+        text-decoration: none;
+        z-index: 9999;
+        transition: top 0.3s;
+      }
+      .skip-nav:focus {
+        top: 0;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid var(--gray-200);
+      }
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--turquoise);
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--black);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .nav-links a:hover,
+      .nav-links a:focus {
+        color: var(--turquoise);
+        outline: 2px solid var(--turquoise);
+        outline-offset: 4px;
+        border-radius: 2px;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+      .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 2px;
+        background: var(--black);
+        margin: 5px 0;
+      }
+      .page-hero {
+        padding: 10rem 2rem 5rem;
+        background: linear-gradient(
+          135deg,
+          var(--gray-50) 0%,
+          var(--white) 100%
+        );
+        text-align: center;
+      }
+      .page-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .page-hero .tagline {
+        font-size: 1.5rem;
+        color: var(--turquoise);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      .page-hero p.hero-desc {
+        font-size: 1.15rem;
+        color: var(--gray-600);
+        max-width: 700px;
+        margin: 0 auto 2rem;
+      }
+      .btn-hero {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--turquoise);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1.05rem;
+        transition: all 0.3s ease;
+      }
+      .btn-hero:hover,
+      .btn-hero:focus {
+        background: var(--turquoise-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 151, 178, 0.25);
+      }
+      .availability-bar {
+        background: var(--gray-50);
+        border-top: 1px solid var(--gray-200);
+        border-bottom: 1px solid var(--gray-200);
+        padding: 1.25rem 2rem;
+      }
+      .availability-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+      }
+      .availability-label {
+        font-weight: 700;
+        color: var(--black);
+        font-family: "DM Sans", sans-serif;
+      }
+      .availability-slots {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .slot-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--gray-600);
+      }
+      .slot-count {
+        background: var(--turquoise);
+        color: var(--white);
+        font-weight: 700;
+        font-size: 0.8rem;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "DM Sans", sans-serif;
+        flex-shrink: 0;
+      }
+      .slot-dot {
+        color: var(--gray-200);
+      }
+      .avail-link {
+        color: var(--turquoise);
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .avail-link:hover {
+        text-decoration: underline;
+      }
+      .content-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+      }
+      .featured-reset {
+        background: linear-gradient(135deg, #f0fafb 0%, #e4f5f8 100%);
+        border: 2px solid var(--turquoise);
+        border-radius: 16px;
+        padding: 3rem;
+        margin-bottom: 4rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .featured-reset::after {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 220px;
+        height: 220px;
+        background: radial-gradient(
+          circle,
+          rgba(0, 151, 178, 0.07) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .featured-badge {
+        display: inline-block;
+        background: var(--turquoise);
+        color: var(--white);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding: 0.3rem 0.85rem;
+        border-radius: 50px;
+        margin-bottom: 1.25rem;
+      }
+      .featured-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+      .featured-reset h2 {
+        font-size: 2.1rem;
+        margin-bottom: 0.5rem;
+      }
+      .featured-price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--turquoise);
+        font-family: "DM Sans", sans-serif;
+        margin-bottom: 1.25rem;
+        line-height: 1;
+      }
+      .featured-price small {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--gray-600);
+        margin-left: 0.25rem;
+      }
+      .featured-desc {
+        color: var(--gray-600);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+      }
+      .featured-features {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+      .featured-features li {
+        padding: 0.45rem 0 0.45rem 1.5rem;
+        position: relative;
+        color: var(--gray-600);
+        font-size: 0.97rem;
+      }
+      .featured-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--turquoise);
+        font-weight: bold;
+      }
+      .btn-apply {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--turquoise);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+      .btn-apply:hover,
+      .btn-apply:focus {
+        background: var(--turquoise-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 151, 178, 0.25);
+      }
+      .featured-note {
+        font-size: 0.88rem;
+        color: var(--gray-600);
+        margin-top: 0.85rem;
+        font-style: italic;
+      }
+      .section-heading {
+        font-size: 1.9rem;
+        margin-bottom: 0.5rem;
+      }
+      .section-sub {
+        color: var(--gray-600);
+        margin-bottom: 2.5rem;
+        font-size: 1.05rem;
+      }
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 2rem 0 3rem;
+      }
+      .pricing-card {
+        background: white;
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        padding: 2.5rem;
+        transition: all 0.3s ease;
+      }
+      .pricing-card:hover {
+        border-color: var(--turquoise);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 151, 178, 0.15);
+      }
+      .pricing-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .price {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--turquoise);
+        font-family: "DM Sans", sans-serif;
+        margin-bottom: 1.5rem;
+      }
+      .features {
+        list-style: none;
+      }
+      .features li {
+        padding: 0.5rem 0 0.5rem 1.5rem;
+        position: relative;
+        color: var(--gray-600);
+      }
+      .features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--turquoise);
+        font-weight: bold;
+      }
+      .terms-box {
+        background: var(--gray-50);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-top: 1rem;
+      }
+      .terms-box h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.75rem;
+      }
+      .terms-box p {
+        color: var(--gray-600);
+        margin-bottom: 0.75rem;
+      }
+      .terms-box p:last-child {
+        margin-bottom: 0;
+      }
+      .cta-section {
+        background: var(--turquoise);
+        color: white;
+        padding: 5rem 2rem;
+        text-align: center;
+        margin-top: 4rem;
+      }
+      .cta-section h2 {
+        margin-bottom: 1rem;
+        font-size: 2.2rem;
+      }
+      .cta-section p {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        opacity: 0.95;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .btn-white {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: white;
+        color: var(--turquoise);
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .btn-white:hover,
+      .btn-white:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        background: var(--gray-800);
+        color: var(--white);
+        padding: 4rem 2rem 2rem;
+      }
+      .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+      .footer-column h4 {
+        margin-bottom: 1.5rem;
+      }
+      .footer-column ul {
+        list-style: none;
+      }
+      .footer-column ul li {
+        margin-bottom: 0.75rem;
+      }
+      .footer-column ul li a {
+        color: #999;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .footer-column ul li a:hover {
+        color: var(--turquoise);
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .social-links a:hover {
+        background: var(--turquoise);
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        text-align: center;
+        color: #999;
+      }
+      @media (max-width: 900px) {
+        .featured-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+          padding: 2rem;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .page-hero h1 {
+          font-size: 2rem;
+        }
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-container {
+          grid-template-columns: 1fr;
+        }
+        .availability-inner {
+          flex-direction: column;
+          gap: 0.75rem;
+          text-align: center;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Social Media Inbox Management",
+        "url": "https://productivitygourmet.com/service-social-media.html",
+        "provider": {
+          "@type": "ProfessionalService",
+          "name": "Productivity Gourmet",
+          "url": "https://productivitygourmet.com"
+        },
+        "description": "Social media inbox management for content creators and influencers across up to 5 platforms. I sort brand deals from fan messages, respond in your voice, and ensure no valuable opportunity gets buried.",
+        "areaServed": ["US", "GB", "AE", "EU"],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Content creators, influencers, UGC creators"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do you make sure responses sound like me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Before I respond to anything on your behalf I complete a Brand Voice Briefing with you. This covers your tone, the words and phrases you use regularly, the ones you would never use, how you address your audience, and examples of responses you have sent that felt right. Nothing goes out until I understand how you sound."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What counts as a brand deal enquiry versus a regular DM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We agree on qualifying standards before work begins — things like minimum offer value, platform relevance, campaign type, and timeline. Anything that meets your criteria gets flagged to you with context. Anything that does not gets handled or archived according to your preferences."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which platforms do you manage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Creator Start covers Instagram and Facebook. Creator Growth adds up to one more platform including LinkedIn, Threads, or TikTok. Creator Pro covers up to 5 platforms including YouTube and Twitter/X."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you get access to my accounts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Through delegated platform access where the platform supports it — Meta Business Suite manager access, for example — which means you never hand over your actual password. Where delegated access is not available, I use a password manager with shared credentials. I never work from a mobile device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between the Inbox Reset and the Inbox Overhaul?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Inbox Reset at $1,500 is for inboxes with up to roughly 6 months of backlog. The Inbox Overhaul at $2,500 is for inboxes that have been unmanaged for years — significantly more volume, more buried opportunities, more historical cleanup required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need the Inbox Reset before starting a monthly plan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Ongoing management only works well when built on a clean foundation. The Reset or Overhaul is the prerequisite for every monthly plan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does getting started look like?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fill out the enquiry form, we schedule a Fit Call to confirm it is the right fit, I send a proposal, you sign a service agreement, and the Inbox Reset or Overhaul begins with full payment upfront. Monthly management begins with a 50% deposit for the first month and full payment from the second month onward."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I combine this with your other services?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Several clients use more than one service — social media inbox management alongside client communications management is a common combination for creators receiving high volume across both channels."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="nav-container">
+        <a
+          href="index.html"
+          class="logo"
+          aria-label="Productivity Gourmet - Home"
+          >Productivity Gourmet</a
+        >
+        <button
+          class="menu-toggle"
+          onclick="toggleMenu()"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html">The Plog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <section class="page-hero" aria-labelledby="hero-heading">
+        <h1 id="hero-heading">
+          Social Media Inbox Management for Content Creators & Influencers
+        </h1>
+        <p class="tagline">
+          Your Next Brand Deal Should Not Be Rotting in a DM Request
+        </p>
+        <p class="hero-desc">
+          Your inbox is not just full — it is full of things that matter buried
+          under things that do not. Brand deals, collaboration offers, speaking
+          requests, genuine fan connections — all competing with spam,
+          follow-for-follow requests, and noise. I sort it, manage it, and
+          respond in your voice so nothing valuable disappears into the backlog.
+        </p>
+        <a
+          href="contact.html"
+          class="btn-hero"
+          aria-label="Apply for a spot in Social Media Inbox Management"
+          >Apply for a Spot</a
+        >
+      </section>
+
+      <div
+        class="availability-bar"
+        role="region"
+        aria-label="Current client availability"
+      >
+        <div class="availability-inner">
+          <span class="availability-label">This Month's Openings:</span>
+          <div class="availability-slots">
+            <span class="slot-item"
+              ><span class="slot-count" aria-label="2 spots">2</span> Creator
+              Start</span
+            >
+            <span class="slot-dot" aria-hidden="true">·</span>
+            <span class="slot-item"
+              ><span class="slot-count" aria-label="1 spot">1</span> Creator
+              Growth</span
+            >
+            <span class="slot-dot" aria-hidden="true">·</span>
+            <span class="slot-item"
+              ><span class="slot-count" aria-label="1 spot">1</span> Creator
+              Pro</span
+            >
+            <span class="slot-dot" aria-hidden="true">·</span>
+            <span class="slot-item"
+              ><span class="slot-count" aria-label="2 spots">2</span> Inbox
+              Audit</span
+            >
+          </div>
+          <a href="contact.html" class="avail-link">Secure your spot &rarr;</a>
+        </div>
+      </div>
+
+      <section class="content-section">
+        <article class="featured-reset" aria-labelledby="audit-heading">
+          <span class="featured-badge">Start Here</span>
+          <div class="featured-grid">
+            <div>
+              <h2 id="audit-heading">Social Media Inbox Audit &amp; Reset</h2>
+              <div class="featured-price">$1,500 <small>one-time</small></div>
+              <p class="featured-desc">
+                Before ongoing DM management can work, your inboxes need a
+                proper foundation. This is a full audit across your active
+                platforms — missed brand deals and opportunities surfaced, a
+                triage system built, and a custom DM template library created in
+                your specific voice. Not borrowed language. Not generic
+                responses. Yours.
+              </p>
+              <p class="featured-desc">
+                For inboxes neglected over several years, I offer a deeper Inbox
+                Overhaul at $2,500 — the same process but built for the volume
+                and complexity that comes with years of accumulated messages.
+                Most creators move straight to a monthly plan after either
+                option. Think of it as the foundation; the retainer is
+                everything built on top of it.
+              </p>
+              <a
+                href="contact.html"
+                class="btn-apply"
+                aria-label="Apply for Social Media Inbox Audit and Reset"
+                >Apply for a Spot</a
+              >
+              <p class="featured-note">
+                Spots are limited and filled first come, first served.
+              </p>
+            </div>
+            <div>
+              <ul
+                class="featured-features"
+                aria-label="What is included in the Inbox Audit and Reset"
+              >
+                <li>Full audit across all active social platforms</li>
+                <li>Missed brand deal and collaboration identification</li>
+                <li>DM triage system and priority flagging framework</li>
+                <li>
+                  Brand voice briefing and custom template library (10+
+                  templates)
+                </li>
+                <li>Fan message vs. business opportunity sorting system</li>
+                <li>Spam and irrelevant message cleanup</li>
+                <li>
+                  Platform access setup via password manager or delegated access
+                </li>
+                <li>7-day post-setup support included</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <h2 class="section-heading">Choose Your Monthly Plan</h2>
+        <p class="section-sub">
+          Ongoing social media inbox management billed monthly. All plans
+          include a weekly summary report.
+        </p>
+
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3>Creator Start</h3>
+            <div class="price">$800/month</div>
+            <ul class="features">
+              <li>Instagram and Facebook (Meta ecosystem)</li>
+              <li>3x weekly inbox monitoring</li>
+              <li>Brand deal identification and flagging</li>
+              <li>Fan message responses using approved templates</li>
+              <li>Brand voice briefing included</li>
+              <li>Weekly summary report</li>
+              <li>Response time: 48hr brands, 48hr fans</li>
+            </ul>
+          </div>
+          <div class="pricing-card">
+            <h3>Creator Growth</h3>
+            <div class="price">$1,100/month</div>
+            <ul class="features">
+              <li>Up to 3 platforms including LinkedIn, Threads, or TikTok</li>
+              <li>5x weekly inbox monitoring</li>
+              <li>Everything in Creator Start</li>
+              <li>Expanded template library</li>
+              <li>Comment monitoring included</li>
+              <li>Weekly summary report</li>
+              <li>Response time: 24hr brands, 24hr fans</li>
+            </ul>
+          </div>
+          <div class="pricing-card">
+            <h3>Creator Pro</h3>
+            <div class="price">$1,600/month</div>
+            <ul class="features">
+              <li>Up to 5 platforms including YouTube and Twitter/X</li>
+              <li>Daily monitoring</li>
+              <li>Everything in Creator Growth</li>
+              <li>Full DM and comment management</li>
+              <li>Brand deal opportunity flagging with suggested next steps</li>
+              <li>Weekly summary report</li>
+              <li>Response time: Same-day brands, 24hr fans</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="terms-box">
+          <h3>Payment Terms</h3>
+          <p>
+            Monthly services invoiced 1st of month, due within 5 days. Inbox
+            Audit &amp; Reset is billed in full upfront.
+          </p>
+          <p>
+            <em
+              >Need pricing for clients in Nigeria or select African markets?
+              <a href="contact.html" style="color: var(--turquoise)"
+                >Contact me</a
+              >
+              for localized rates.</em
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2>Who This Service Is For</h2>
+        <p style="margin-top: 1rem">
+          Content creators, influencers, and UGC creators whose inboxes have
+          become a second job. If you are spending more time sorting messages
+          than creating content, something has gone wrong with how your business
+          is set up — not with you.
+        </p>
+        <p style="margin-top: 1rem">
+          This service is particularly built for creators with growing or
+          established audiences across Instagram, Facebook, TikTok, LinkedIn,
+          Threads, YouTube, or Twitter/X who are receiving consistent brand
+          enquiries, collaboration requests, and high fan message volume. If
+          brand deals are arriving but getting lost, if your response time is
+          suffering, or if you simply cannot face opening your DMs anymore —
+          this is the right conversation to have.
+        </p>
+        <p style="margin-top: 1rem">
+          It is not built for creators who are just starting out and receiving
+          occasional messages. The inbox needs enough volume to justify
+          professional management. If you are unsure whether you are at that
+          point, the Fit Call will tell us both quickly.
+        </p>
+
+        <h2 style="margin-top: 3rem">You Might Also Need</h2>
+        <p style="margin-top: 1rem">
+          If your social media inboxes are chaotic, your email inbox is likely
+          not far behind. Brand partnership offers, speaking requests, and
+          collaboration proposals arrive via email just as often as they do via
+          DMs — sometimes more formally, and usually with higher stakes. I
+          manage professional email and client communications separately under
+          my
+          <a
+            href="service-client-communications.html"
+            style="color: var(--turquoise)"
+            >Client Communications service</a
+          >. Many creators find they need both, and the two work well together.
+        </p>
+        <p style="margin-top: 1rem">
+          If you also need broader operational support — research, task
+          management, process design, or automation — my
+          <a
+            href="service-virtual-assistant.html"
+            style="color: var(--turquoise)"
+            >Virtual Assistant service</a
+          >
+          handles that side of your business.
+        </p>
+      </section>
+
+      <section
+        class="content-section"
+        style="border-top: 1px solid var(--gray-200)"
+      >
+        <h2>Frequently Asked Questions</h2>
+
+        <h3 style="margin-top: 2rem">
+          How do you make sure responses sound like me?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          Before I respond to anything on your behalf I complete a Brand Voice
+          Briefing with you. This covers your tone, the words and phrases you
+          use regularly, the ones you would never use, how you address your
+          audience, and examples of responses you have sent that felt right.
+          Nothing goes out until I understand how you sound. The briefing is
+          part of onboarding for every client on this service.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          What counts as a brand deal enquiry versus a regular DM?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          We agree on qualifying standards before work begins — things like
+          minimum offer value, platform relevance, campaign type, and timeline.
+          Anything that meets your criteria gets flagged to you with context.
+          Anything that does not gets handled or archived according to your
+          preferences. You define the bar; I apply it consistently.
+        </p>
+
+        <h3 style="margin-top: 2rem">Which platforms do you manage?</h3>
+        <p style="margin-top: 0.5rem">
+          Creator Start covers Instagram and Facebook via Meta Business Suite.
+          Creator Growth adds up to one more platform including LinkedIn,
+          Threads, or TikTok. Creator Pro covers up to 5 platforms including
+          YouTube and Twitter/X. If your primary platform is not listed here,
+          mention it on your enquiry form and we will figure out whether it
+          works.
+        </p>
+
+        <h3 style="margin-top: 2rem">How do you get access to my accounts?</h3>
+        <p style="margin-top: 0.5rem">
+          Through delegated platform access where the platform supports it —
+          Meta Business Suite manager access, for example — which means you
+          never hand over your actual password. Where delegated access is not
+          available, I use a password manager with shared credentials. I never
+          work from a mobile device, so your account access is always handled in
+          a controlled, secure environment.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          What is the difference between the Inbox Reset and the Inbox Overhaul?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          The Inbox Reset at $1,500 is for inboxes with up to roughly 6 months
+          of backlog — recent chaos that needs organising before ongoing
+          management begins. The Inbox Overhaul at $2,500 is for inboxes that
+          have been unmanaged for years — significantly more volume, more buried
+          opportunities, more historical cleanup required. If you are not sure
+          which applies to you, the Fit Call will clarify it immediately.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          Do I need the Inbox Reset before starting a monthly plan?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          Yes. Ongoing management only works well when built on a clean
+          foundation. Starting without it means managing chaos rather than
+          preventing it — which is a worse experience for you and a harder job
+          for me. The Reset or Overhaul is the prerequisite for every monthly
+          plan.
+        </p>
+
+        <h3 style="margin-top: 2rem">What does getting started look like?</h3>
+        <p style="margin-top: 0.5rem">
+          Fill out the enquiry form, we schedule a Fit Call to confirm it is the
+          right fit, I send a proposal, you sign a service agreement, and the
+          Inbox Reset or Overhaul begins with full payment upfront. Once that is
+          complete, monthly management begins with a 50% deposit for the first
+          month and full payment from the second month onward.
+        </p>
+
+        <h3 style="margin-top: 2rem">
+          Can I combine this with your other services?
+        </h3>
+        <p style="margin-top: 0.5rem">
+          Yes. Several clients use more than one service — social media inbox
+          management alongside client communications management is a common
+          combination for creators who are receiving high volume across both
+          channels. How that works in practice is something we discuss during
+          the Fit Call, including whether it makes sense as separate engagements
+          or a combined arrangement.
+        </p>
+      </section>
+
+      <section class="cta-section" aria-labelledby="cta-heading">
+        <h2 id="cta-heading">Never Miss Another Brand Deal</h2>
+        <p>
+          Your next collaboration offer should not be rotting in a DM request
+          folder. I fix that.
+        </p>
+        <a
+          href="contact.html"
+          class="btn-white"
+          aria-label="Apply for a spot in Social Media Inbox Management"
+          >Apply for a Spot</a
+        >
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h4>Productivity Gourmet</h4>
+          <p style="color: #999; margin-bottom: 1.25rem">
+            Crafting Success From Your Stumbles
+          </p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/productivity-gourmet"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in" aria-hidden="true"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/productivity_gourmet/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram" aria-hidden="true"></i
+            ></a>
+            <a
+              href="https://web.facebook.com/ProductivityGourmet/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f" aria-hidden="true"></i
+            ></a>
+            <a
+              href="https://www.threads.net/@productivity_gourmet"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Threads"
+              ><i class="fab fa-threads" aria-hidden="true"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li>
+              <a href="service-customer-service.html">Customer Service</a>
+            </li>
+            <li>
+              <a href="service-client-communications.html"
+                >Client Communications</a
+              >
+            </li>
+            <li>
+              <a href="service-social-media.html"
+                >Social Media Inbox Management</a
+              >
+            </li>
+            <li>
+              <a href="service-virtual-assistant.html">Virtual Assistant</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">The Plog</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="mailto:hello@productivitygourmet.com"
+                >hello@productivitygourmet.com</a
+              >
+            </li>
+            <li style="color: #999">EMEA Region</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Productivity Gourmet. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        const nav = document.querySelector(".nav-links");
+        const btn = document.querySelector(".menu-toggle");
+        const isOpen = nav.classList.toggle("active");
+        btn.setAttribute("aria-expanded", isOpen);
+      }
+    </script>
+  </body>
+</html>

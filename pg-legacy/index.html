@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Gourmet | VA & Operations Support</title>
+    <meta name="description" content="Virtual assistant and operations support for service providers, executives, and creators in the US, UK, and EMEA. I manage your communications, inbox, and operations so you can focus on the work that actually moves your business forward.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K29156K1NJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-K29156K1NJ');
+    </script>
+    
+    <style>
+        :root {
+            --turquoise: #0097B2;
+            --turquoise-dark: #007A91;
+            --turquoise-light: #00B8D4;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --gray-50: #FAFAFA;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-300: #D4D4D4;
+            --gray-600: #525252;
+            --gray-800: #262626;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .display {
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+        }
+
+        .skip-nav {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            background: #0097B2;
+            color: #fff;
+            padding: .75rem 1.5rem;
+            border-radius: 0 0 8px 8px;
+            font-weight: 600;
+            text-decoration: none;
+            z-index: 9999;
+            transition: top 0.3s;
+        }
+
+        .skip-nav:focus {
+            top: 0;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-200);
+            animation: slideDown 0.6s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--turquoise);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--turquoise);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover { color: var(--turquoise); }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--black);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(0, 151, 178, 0.05) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, 30px) rotate(5deg); }
+        }
+        
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-tagline {
+            font-size: 1rem;
+            color: var(--turquoise);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .hero-brand-line {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+        }
+        
+        .hero h1 .highlight,
+        .hero-brand-line .highlight {
+            color: var(--turquoise);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+        
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+        
+        .btn-primary {
+            background: var(--turquoise);
+            color: var(--white);
+            border-color: var(--turquoise);
+        }
+        
+        .btn-primary:hover {
+            background: var(--turquoise-dark);
+            border-color: var(--turquoise-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 151, 178, 0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--black);
+            border-color: var(--gray-300);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--turquoise);
+            color: var(--turquoise);
+            transform: translateY(-2px);
+        }
+        
+        .hero-visual {
+            position: relative;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            border-color: var(--turquoise);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--turquoise);
+            font-family: 'DM Sans', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+        
+        .services {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+        
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+        
+        .section-label {
+            font-size: 0.95rem;
+            color: var(--turquoise);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+        
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-card {
+            background: var(--gray-50);
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+        
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .service-card:hover {
+            background: var(--white);
+            border-color: var(--turquoise);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--turquoise);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--turquoise);
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background: var(--turquoise);
+            color: var(--white);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+        
+        .service-card p {
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-link {
+            color: var(--turquoise);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+        
+        .service-link:hover { gap: 1rem; }
+        
+        .service-link::after {
+            content: '→';
+            font-size: 1.2rem;
+        }
+        
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--turquoise) 0%, var(--turquoise-dark) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+        
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-white {
+            background: var(--white);
+            color: var(--turquoise);
+            border-color: var(--white);
+        }
+        
+        .btn-white:hover {
+            background: var(--gray-50);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            background: var(--gray-800);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            color: var(--turquoise);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand p {
+            color: var(--gray-300);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--turquoise);
+            transform: translateY(-3px);
+        }
+        
+        .footer-column h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+        
+        .footer-column ul { list-style: none; }
+        .footer-column ul li { margin-bottom: 0.8rem; }
+        
+        .footer-column ul li a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover { color: var(--turquoise); }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-300);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; gap: 3rem; }
+            .hero h1 { font-size: 1.5rem; }
+            .hero-brand-line { font-size: 3rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-container { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero { padding: 6rem 1.5rem 3rem; }
+            .hero h1 { font-size: 1.25rem; }
+            .hero-brand-line { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .cta-group { flex-direction: column; }
+            .btn { text-align: center; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
+            .section-header h2 { font-size: 2rem; }
+            .cta-section h2 { font-size: 2rem; }
+            .footer-container { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Productivity Gourmet",
+  "url": "https://productivitygourmet.com",
+  "logo": "https://productivitygourmet.com/images/logo.png",
+  "description": "Virtual assistant and operations support for service providers, executives, and creators in the US, UK, and EMEA. Services include client communications management, customer service management, social media inbox management, and virtual assistant support. AI-assisted, systems-minded, built around your business.",
+  "email": "hello@productivitygourmet.com",
+  "priceRange": "$$$",
+  "areaServed": ["US", "GB", "AE", "EU"],
+  "serviceType": [
+    "Client Communications Management",
+    "Customer Service Management",
+    "Social Media Inbox Management",
+    "Virtual Assistant Services"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/productivity-gourmet",
+    "https://www.facebook.com/ProductivityGourmet",
+    "https://www.threads.net/@productivity_gourmet",
+    "https://www.instagram.com/productivity_gourmet"
+  ]
+}
+</script>
+</head>
+<body>
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="Productivity Gourmet - Home">Productivity Gourmet</a>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">The Plog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-tagline">Virtual Assistant & Operations Support</span>
+                <h1 id="hero-heading">Virtual Assistant & Operations Support for Service Providers, Executives & Creators</h1>
+                <p class="hero-brand-line display">Crafting Success <br>From Your <span class="highlight">Stumbles</span></p>
+                <p class="hero-subtitle">
+                    You are good at what you do. The communications, inbox management, and operational layer around it is where things break down. I step in at exactly that point — and push for better.
+                </p>
+                <div class="cta-group">
+                    <a href="services.html" class="btn btn-primary">Explore Services</a>
+                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">US, UK</div>
+                        <div class="stat-label">& EMEA Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Specialist Services</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24hr</div>
+                        <div class="stat-label">Standard Response Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">AI+</div>
+                        <div class="stat-label">Assisted & Human-Led</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" aria-labelledby="services-heading">
+        <div class="section-container">
+            <div class="section-header">
+                <div class="section-label">What I Offer</div>
+                <h2 id="services-heading">Four Services. One Operational Partner.</h2>
+                <p class="section-description">
+                    Each service is built around a specific operational pressure point. Find the one that matches where your business is breaking down — or start with a Fit Call and we will figure it out together.
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="far fa-envelope"></i></div>
+                    <h3>Client Communications Management</h3>
+                    <p>
+                        Professional email and client correspondence management for service providers and executives. Your leads followed up, your clients responded to, your inbox under control — in your voice, to your standards.
+                    </p>
+                    <a href="service-client-communications.html" class="service-link">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="far fa-comments"></i></div>
+                    <h3>Customer Service Management</h3>
+                    <p>
+                        Outsourced customer service for e-commerce brands and high-volume service businesses. I handle enquiries, ease anxious customers, and escalate what needs your attention — using systems built around your business.
+                    </p>
+                    <a href="service-customer-service.html" class="service-link">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fab fa-instagram"></i></div>
+                    <h3>Social Media Inbox Management</h3>
+                    <p>
+                        DM and inbox management for content creators and influencers. I sort the brand deals from the noise, respond in your voice, and make sure no collaboration offer disappears into the backlog.
+                    </p>
+                    <a href="service-social-media.html" class="service-link">Learn More</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="far fa-user"></i></div>
+                    <h3>Virtual Assistant Services</h3>
+                    <p>
+AI-assisted operational support from flexible task management to high-trust Executive VA partnerships. I meet you at the level your business needs right now — research, systems, automation, process design — and push for better.                    </p>
+                    <a href="service-virtual-assistant.html" class="service-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" aria-labelledby="cta-heading">
+        <div class="section-container">
+            <h2 id="cta-heading">The Irony: Success Is Killing Your Business</h2>
+            <p>
+                More clients means more messages. More messages means less time delivering. Less delivery time means unhappy clients. I break this cycle.
+            </p>
+            <a href="contact.html" class="btn btn-white">Break Free</a>
+        </div>
+    </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Productivity Gourmet</h3>
+                <p>
+                    Virtual assistant and operations support for service providers, executives, and creators. US, UK, and EMEA.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/productivity-gourmet" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/productivity_gourmet/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://web.facebook.com/ProductivityGourmet/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.threads.net/@productivity_gourmet" target="_blank" rel="noopener noreferrer" aria-label="Threads"><i class="fab fa-threads" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="service-customer-service.html">Customer Service</a></li>
+                    <li><a href="service-client-communications.html">Client Communications</a></li>
+                    <li><a href="service-social-media.html">Social Media Inbox Management</a></li>
+                    <li><a href="service-virtual-assistant.html">Virtual Assistant</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">The Plog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:hello@productivitygourmet.com">hello@productivitygourmet.com</a></li>
+                    <li style="color: var(--gray-300);">EMEA Region</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Productivity Gourmet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            const btn = document.querySelector('.menu-toggle');
+            const isOpen = nav.classList.toggle('active');
+            btn.setAttribute('aria-expanded', isOpen);
+        }
+        
+        document.addEventListener('click', function(event) {
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
