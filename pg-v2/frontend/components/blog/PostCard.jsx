@@ -1,11 +1,9 @@
 import Link from "next/link";
-// Next.js Image component automatically optimizes, compresses, and lazy-loads images.
 import Image from "next/image"; 
 import styles from "./PostCard.module.scss";
 
 export default function PostCard({ post }) {
   return (
-    // aria-labelledby links the article to its heading for screen readers
     <article className={styles.card} aria-labelledby={`post-title-${post.id}`}>
       {post.cover_image && (
         <div className={styles.cover} aria-hidden="true">
