@@ -1,0 +1,58 @@
+// ── Colors
+$color-primary:       #00A8A8;   // Teal — buttons, links, accents, badges
+$color-primary-dark:  #007A7A;   // Hover states
+$color-primary-light: #E0F5F5;   // Light teal backgrounds
+$color-primary-text:  #007575;   // Darker teal — passes 4.5:1 contrast for small text
+$color-black:         #111111;   // Headings
+$color-body:          #333333;   // Body text
+$color-muted:         #666666;   // Timestamps, captions
+$color-border:        #E5E5E5;   // Card borders, dividers
+$color-bg:            #FFFFFF;   // Page background
+$color-bg-soft:       #F7F7F7;   // Section backgrounds
+$color-bg-hero:       #F5EDE8;   // Hero section warm tint
+$color-error:         #D32F2F;   // Form errors
+$color-success:       #2E7D32;   // Success messages
+
+// ── Export as CSS custom properties for runtime access
+:root {
+  --color-primary:       #{$color-primary};
+  --color-primary-dark:  #{$color-primary-dark};
+  --color-primary-light: #{$color-primary-light};
+  --color-black:         #{$color-black};
+  --color-body:          #{$color-body};
+  --color-muted:         #{$color-muted};
+  --color-border:        #{$color-border};
+  --color-bg:            #{$color-bg};
+  --color-bg-soft:       #{$color-bg-soft};
+  --color-bg-hero:       #{$color-bg-hero};
+  --color-error:         #{$color-error};
+  --color-success:       #{$color-success};
+}
+
+// ── Typography
+$font-serif: 'Playfair Display', Georgia, serif;
+$font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+$font-mono:  'JetBrains Mono', 'Fira Code', monospace;
+$font-size-base:  1rem;
+$line-height-base: 1.7;
+
+// ── Spacing scale
+$space-1:  0.25rem;   //  4px
+$space-2:  0.5rem;    //  8px
+$space-3:  0.75rem;   // 12px
+$space-4:  1rem;      // 16px
+$space-5:  1.25rem;   // 20px
+$space-6:  1.5rem;    // 24px
+$space-8:  2rem;      // 32px
+$space-10: 2.5rem;    // 40px
+$space-12: 3rem;      // 48px
+$space-16: 4rem;      // 64px
+$space-20: 5rem;      // 80px
+
+// ── Layout
+$max-width:        1200px;
+$max-width-prose:  720px;
+$navbar-height:    72px;
+$border-radius:    12px;
+$border-radius-sm: 6px;
+$border-radius-pill: 999px;
