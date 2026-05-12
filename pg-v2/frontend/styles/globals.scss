@@ -1,0 +1,40 @@
+@use 'variables';
+@use 'mixins';
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: variables.$font-sans;
+  font-size: variables.$font-size-base;
+  line-height: variables.$line-height-base;
+  color: variables.$color-body;
+  background-color: variables.$color-bg;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: variables.$font-serif;
+  color: variables.$color-black;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+
+a {
+  color: variables.$color-primary-text;
+  text-decoration: underline;
+  &:hover { color: variables.$color-primary-dark; }
+}
+
+a, button, input, select, textarea, [tabindex] {
+  @include mixins.focus-ring;
+}
+
+// Accessibility utility class
+.sr-only { @include mixins.sr-only; }
