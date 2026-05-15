@@ -1,6 +1,7 @@
 import uuid
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field
+from typing import Optional
 
 class PostBase(BaseModel):
     title: str = Field(..., max_length=300)
@@ -14,8 +15,14 @@ class PostBase(BaseModel):
     analytics_public: bool = False
     scheduled_at: datetime | None = None
 
-class PostCreate(PostBase):
-    pass
+class PostCreate(BaseModel):
+    title: str
+    content: str
+    category: str
+    summary: str
+    cover_image: Optional[str] = None
+    is_published: bool = False
+    slug: Optional[str] = None
 
 class PostUpdate(BaseModel):
     title: str | None = Field(None, max_length=300)

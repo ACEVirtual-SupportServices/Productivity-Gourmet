@@ -12,6 +12,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'plus.unsplash.com', // Unsplash often serves from this subdomain
+      },
+      {
+        protocol: 'https',
         hostname: 'res.cloudinary.com', // Pre-configuring for your Stage 6 setup
       },
     ],
