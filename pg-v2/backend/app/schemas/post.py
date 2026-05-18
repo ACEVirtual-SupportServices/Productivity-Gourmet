@@ -16,13 +16,17 @@ class PostBase(BaseModel):
     scheduled_at: datetime | None = None
 
 class PostCreate(BaseModel):
-    title: str
-    content: str
-    category: str
-    summary: str
-    cover_image: Optional[str] = None
-    is_published: bool = False
+    title: str = Field(..., max_length=300)
     slug: Optional[str] = None
+    content: str
+    cover_image: str | None = None
+    summary: str | None = Field(None, max_length=500)
+    category: str = Field(..., max_length=100)
+    read_time: int = 1
+    is_published: bool = False
+    analytics_public: bool = False
+    scheduled_at: datetime | None = None
+    
 
 class PostUpdate(BaseModel):
     title: str | None = Field(None, max_length=300)

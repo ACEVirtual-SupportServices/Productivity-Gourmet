@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: ["127.0.0.1"],
+  webpack: (config) => {
+    config.watchOptions = {
+      poll: 1000,        // check for changes every 1s
+      aggregateTimeout: 300,
+    };
+    return config;
+  },
   images: {
     remotePatterns: [
       {

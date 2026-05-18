@@ -87,13 +87,57 @@ export default function AdminLogin() {
             {loading ? "Logging in…" : "Log In"}
           </button>
         </form>
-        <button
-          type="button"
-          onClick={() => console.log("BUTTON CLICKED")}
-        >
-          Test
-        </button>
       </div>
     </main>
   );
 }
+
+// "use client";
+
+// export default function AdminLogin() {
+//   return (
+//     <div>
+//       <form
+//         onSubmit={(e) => {
+//           e.preventDefault();
+//           alert("INTERCEPT WORKED");
+//           console.log("INTERCEPT WORKED");
+//         }}
+//       >
+//         <input type="text" />
+//         <button
+//           type="submit"
+//           onClick={() => console.log("BUTTON CLICK")}
+//         >
+//           Submit
+//         </button>
+//       </form>
+//     </div>
+//   );
+// }
+
+
+
+// "use client";
+
+// export default function AdminLogin() {
+//   console.log("ADMIN PAGE RENDERED");
+
+//   return (
+//     <div>
+//       <h1>Admin Test</h1>
+
+//       <form
+//         onSubmit={(e) => {
+//           e.preventDefault();
+//           console.log("FORM INTERCEPTED");
+//           alert("FORM WORKS");
+//         }}
+//       >
+//         <input type="text" />
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
