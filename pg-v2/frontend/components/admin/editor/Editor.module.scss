@@ -1,0 +1,107 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.container {
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  background: $color-bg;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  padding: $space-3;
+  background: $color-bg-soft;
+  border-bottom: 1px solid $color-border;
+}
+
+.toolbarBtn {
+  padding: $space-2 $space-3;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: $border-radius-sm;
+  color: $color-body;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  @include focus-ring;
+
+  &:hover {
+    background: $color-border;
+  }
+
+  &.active {
+    background: $color-primary;
+    color: white;
+  }
+}
+
+.editorArea {
+  padding: $space-6;
+  min-height: 400px;
+  cursor: text;
+
+  // Tiptap automatically applies this class to the editable area
+  :global(.ProseMirror) {
+    outline: none;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: $color-body;
+
+    // Apply our brand typography inside the editor
+    h2, h3, h4 {
+      font-family: $font-serif;
+      color: $color-black;
+      margin-top: $space-8;
+      margin-bottom: $space-4;
+    }
+
+    p {
+      margin-bottom: $space-4;
+    }
+
+    blockquote {
+      border-left: 4px solid $color-primary;
+      padding-left: $space-4;
+      margin-left: 0;
+      font-style: italic;
+      color: $color-muted;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: $border-radius;
+      margin: $space-6 0;
+      
+      // Tiptap adds this class when an image is selected
+      &.ProseMirror-selectednode {
+        outline: 3px solid $color-primary;
+      }
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: $space-4;
+      border-radius: $border-radius-sm;
+      font-family: $font-mono;
+      overflow-x: auto;
+    }
+  }
+
+  // Placeholder styling
+  :global(.ProseMirror p.is-editor-empty:first-child::before) {
+    color: $color-muted;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
+}
