@@ -1,20 +1,13 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: ["127.0.0.1"],
+  turbopack: {},
+  webpack: (config) => {
+    config.watchOptions = { poll: 1000, aggregateTimeout: 300 };
+    return config;
+  },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'unsplash.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com', // Unsplash often serves from this subdomain
-      },
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com', // Pre-configuring for your Stage 6 setup
-      },
-    ],
+    loader: "custom",
+    loaderFile: "./cloudinary-loader.js",
   },
 };
 

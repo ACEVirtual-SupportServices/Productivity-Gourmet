@@ -1,12 +1,14 @@
-FROM node:22-alpine
+FROM node:22-slim
 
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
 
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY . .
+
+USER node
 
 EXPOSE 3000
 
