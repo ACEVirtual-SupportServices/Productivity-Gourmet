@@ -37,6 +37,7 @@ export default function AdminLogin() {
         return;
       }
 
+      localStorage.setItem("admin_token", "true");
       router.push("/admin/dashboard");
       
     } catch (err) {
@@ -77,7 +78,6 @@ export default function AdminLogin() {
               required 
             />
           </div>
-          {/* Corrected Button for Diagnostic Test */}
           <button 
             type="submit"
             disabled={loading} 
@@ -91,53 +91,3 @@ export default function AdminLogin() {
     </main>
   );
 }
-
-// "use client";
-
-// export default function AdminLogin() {
-//   return (
-//     <div>
-//       <form
-//         onSubmit={(e) => {
-//           e.preventDefault();
-//           alert("INTERCEPT WORKED");
-//           console.log("INTERCEPT WORKED");
-//         }}
-//       >
-//         <input type="text" />
-//         <button
-//           type="submit"
-//           onClick={() => console.log("BUTTON CLICK")}
-//         >
-//           Submit
-//         </button>
-//       </form>
-//     </div>
-//   );
-// }
-
-
-
-// "use client";
-
-// export default function AdminLogin() {
-//   console.log("ADMIN PAGE RENDERED");
-
-//   return (
-//     <div>
-//       <h1>Admin Test</h1>
-
-//       <form
-//         onSubmit={(e) => {
-//           e.preventDefault();
-//           console.log("FORM INTERCEPTED");
-//           alert("FORM WORKS");
-//         }}
-//       >
-//         <input type="text" />
-//         <button type="submit">Submit</button>
-//       </form>
-//     </div>
-//   );
-// }
-

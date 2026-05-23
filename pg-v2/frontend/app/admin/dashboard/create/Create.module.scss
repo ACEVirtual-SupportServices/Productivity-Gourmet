@@ -1,18 +1,20 @@
-@use '../../../../styles/variables' as *;
 @use '../../../../styles/mixins' as *;
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $space-8;
+  margin-bottom: 2rem;
 
-  h1 { margin: 0; }
+  h1 { 
+    margin: 0; 
+    color: var(--color-black); // Dynamic text
+  }
 }
 
 .layout {
   display: grid;
-  gap: $space-8;
+  gap: 2rem;
   
   @include lg {
     grid-template-columns: 2fr 1fr;
@@ -23,37 +25,39 @@
 .mainColumn {
   display: flex;
   flex-direction: column;
-  gap: $space-6;
+  gap: 1.5rem;
 }
 
 .sideColumn {
   display: flex;
   flex-direction: column;
-  gap: $space-6;
-  background: $color-bg-soft;
-  padding: $space-6;
-  border-radius: $border-radius;
-  border: 1px solid $color-border;
+  gap: 1.5rem;
+  background: var(--color-bg-soft); // Dynamic background
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
 }
 
 .field {
   display: flex;
   flex-direction: column;
-  gap: $space-2;
+  gap: 0.5rem;
 
   label {
     font-weight: 600;
     font-size: 0.875rem;
-    color: $color-black;
+    color: var(--color-black);
   }
 
   input, select, textarea {
-    padding: $space-3;
-    border: 1px solid $color-border;
-    border-radius: $border-radius-sm;
-    font-family: $font-sans;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-family: var(--font-sans);
     font-size: 1rem;
-    background: $color-bg;
+    
+    background: var(--color-bg);
+    color: var(--color-body);
 
     @include focus-ring;
   }
@@ -67,13 +71,14 @@
 .radioGroup {
   display: flex;
   flex-direction: column;
-  gap: $space-3;
-  margin-top: $space-2;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  color: var(--color-body);
 
   label {
     display: flex;
     align-items: center;
-    gap: $space-3;
+    gap: 0.75rem;
     font-weight: 400;
     cursor: pointer;
   }
@@ -81,77 +86,62 @@
 
 .btnGroup {
   display: flex;
-  gap: $space-3;
-  margin-top: $space-4;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
 
 .btnPrimary {
   flex: 1;
-  padding: $space-3;
-  background: $color-primary;
+  padding: 0.75rem;
+  background: var(--color-primary);
   color: white;
   border: none;
-  border-radius: $border-radius-sm;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
 
-  &:hover:not(:disabled) { background: $color-primary-dark; }
+  &:hover:not(:disabled) { background: var(--color-primary-dark); }
   &:disabled { opacity: 0.7; cursor: not-allowed; }
 }
 
 .btnSecondary {
   flex: 1;
-  padding: $space-3;
+  padding: 0.75rem;
   background: transparent;
-  color: $color-body;
-  border: 1px solid $color-border;
-  border-radius: $border-radius-sm;
+  color: var(--color-body);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
 
-  &:hover:not(:disabled) { background: $color-border; }
+  &:hover:not(:disabled) { background: var(--color-bg-soft); }
 }
 
 .dropzone {
-  border: 2px dashed $color-border;
-  border-radius: $border-radius;
-  padding: $space-6;
+  border: 2px dashed var(--color-border);
+  border-radius: 8px;
+  padding: 2rem;
   text-align: center;
   cursor: pointer;
-  background: $color-bg-soft;
+  background-color: var(--color-bg-secondary);
   transition: all 0.2s ease;
-  position: relative;
-  overflow: hidden;
 
-  &:hover, &.dragActive {
-    border-color: $color-primary;
-    background: rgba($color-primary, 0.05);
-  }
-
-  input[type="file"] {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-  }
-
-  .dropzoneText {
-    color: $color-muted;
-    font-size: 0.875rem;
-    pointer-events: none;
+  &.dragging, &:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary-light);
   }
 }
 
+.dropzoneText {
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
 .coverPreview {
+  position: relative;
   width: 100%;
   height: 200px;
-  position: relative;
-  border-radius: $border-radius;
-  overflow: hidden;
-  margin-bottom: $space-3;
 }

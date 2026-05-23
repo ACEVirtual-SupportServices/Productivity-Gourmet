@@ -46,3 +46,15 @@ class PostResponse(PostBase):
     updated_at: datetime | None = None
 
     model_config = ConfigDict(from_attributes=True)
+
+class PostUpdate(BaseModel):
+    title: Optional[str] = Field(None, max_length=300)
+    slug: Optional[str] = None
+    content: Optional[str] = None
+    cover_image: Optional[str] = None
+    summary: Optional[str] = Field(None, max_length=500)
+    category: Optional[str] = Field(None, max_length=100)
+    read_time: Optional[int] = None
+    is_published: Optional[bool] = None
+    analytics_public: Optional[bool] = None
+    scheduled_at: Optional[datetime] = None

@@ -7,6 +7,10 @@ from app.core.database import engine, Base
 from app.core.scheduler import start_scheduler
 from app.api.auth import router as auth_router
 from app.api.posts import router as posts_router
+from app.api.comments import router as comments_router
+from app.api.views import router as views_router
+from app.api.admin_analytics import router as admin_analytics_router
+from app.api.admin_posts import router as admin_posts_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -18,7 +22,7 @@ app = FastAPI(title=settings.PROJECT_NAME, lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:3000"],
+    allow_origins=["http://127.0.0.1:3000", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -26,6 +30,10 @@ app.add_middleware(
 
 app.include_router(posts_router, prefix="/api/posts", tags=["Posts"])
 app.include_router(auth_router, prefix="/api/auth", tags=["Auth"])
+app.include_router(comments_router, prefix="/api/comments", tags=["Comments"])
+app.include_router(views_router, prefix="/api", tags=["Analytics"])
+app.include_router(admin_analytics_router, prefix="/api/admin/analytics", tags=["Admin Analytics"])
+app.include_router(admin_posts_router, prefix="/api/admin/posts", tags=["Admin Posts"])
 
 @app.get("/")
 async def root():

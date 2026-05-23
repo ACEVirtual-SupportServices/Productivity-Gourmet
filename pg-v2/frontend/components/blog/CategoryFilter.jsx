@@ -1,4 +1,3 @@
-// CRITICAL: This directive tells Next.js to ship JavaScript for this component to the browser.
 "use client";
 
 import { useState, useId } from "react";
@@ -35,8 +34,8 @@ export default function CategoryFilter({ categories, allPosts }) {
       </div>
 
       <ul className={styles.grid} aria-label={`${active} posts`}>
-        {filtered.map(post => (
-          <li key={post.id}><PostCard post={post} /></li>
+        {filtered.map((post, index) => (
+          <li key={post.id}><PostCard post={post} priority={index === 0} /></li>
         ))}
       </ul>
 

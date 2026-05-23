@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import RichTextEditor from "@/components/admin/editor/RichTextEditor";
@@ -10,25 +10,27 @@ const CATEGORIES = ["Operations", "Client Communications", "Systems", "Mindset",
 
 export default function CreatePostPage() {
   const router = useRouter();
+  const fileInputRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Form State
   const [title, setTitle] = useState("");
   const [coverImage, setCoverImage] = useState(""); 
   const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
   const [summary, setSummary] = useState("");
   const [category, setCategory] = useState(CATEGORIES[0]);
   const [content, setContent] = useState("");
   
-  // Publishing State
   const [publishState, setPublishState] = useState("draft"); 
   const [scheduledAt, setScheduledAt] = useState("");
 
-  // The Cloudinary Upload Handler for the Cover Image Dropzone
-  const handleCoverImageUpload = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+  // Unified Upload Logic
+  const uploadImage = async (file) => {
+    if (!file || !file.type.startsWith('image/')) {
+      alert("Please upload a valid image file.");
+      return;
+    }
 
     setIsUploadingImage(true);
     const formData = new FormData();
@@ -51,6 +53,19 @@ export default function CreatePostPage() {
       console.error(err);
     } finally {
       setIsUploadingImage(false);
+      if (fileInputRef.current) fileInputRef.current.value = ""; 
+    }
+  };
+
+  // Drag and Drop Handlers
+  const handleDragOver = (e) => { e.preventDefault(); setIsDragging(true); };
+  const handleDragLeave = (e) => { e.preventDefault(); setIsDragging(false); };
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      uploadImage(e.dataTransfer.files[0]);
+      e.dataTransfer.clearData();
     }
   };
 
@@ -91,7 +106,7 @@ export default function CreatePostPage() {
         throw new Error(data.detail || "Failed to create post.");
       }
 
-      router.push("/admin/dashboard");
+      router.push("/admin/dashboard/posts");
       
     } catch (err) {
       setError(err.message);
@@ -116,7 +131,6 @@ export default function CreatePostPage() {
               <input
                 id="title"
                 type="text"
-                placeholder="The secret to bulletproof systems..."
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 required
@@ -138,35 +152,39 @@ export default function CreatePostPage() {
             </div>
 
             <div className={styles.field}>
-              <label>Cover Image (Thumbnail)</label>
+              <label>Cover Image</label>
               {!coverImage ? (
-                <div className={styles.dropzone}>
+                <div 
+                  className={`${styles.dropzone} ${isDragging ? styles.dragging : ""}`}
+                  onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
+                  onDrop={handleDrop}
+                  onClick={() => fileInputRef.current?.click()}
+                >
                   <input
                     type="file"
                     accept="image/*"
-                    onChange={handleCoverImageUpload}
+                    ref={fileInputRef}
+                    onChange={(e) => uploadImage(e.target.files[0])}
                     disabled={isUploadingImage}
+                    style={{ display: 'none' }}
                   />
                   <div className={styles.dropzoneText}>
-                    {isUploadingImage ? "Uploading to Cloudinary..." : "Click or drag an image here"}
+                    {isUploadingImage ? "Uploading..." : "Click or drag an image here"}
                   </div>
                 </div>
               ) : (
-                <div>
+                <div className={styles.imageContainer}>
                   <div className={styles.coverPreview}>
-                    <Image 
-                      src={coverImage} 
-                      alt="Cover Preview" 
-                      fill 
-                      style={{ objectFit: "cover" }} 
+                    <Image
+                      src={coverImage}
+                      alt="Cover Preview"
+                      fill
+                      sizes="400px"
+                      style={{ objectFit: "cover", borderRadius: "8px" }}
                     />
                   </div>
-                  <button 
-                    type="button" 
-                    onClick={() => setCoverImage("")} 
-                    className={styles.btnSecondary} 
-                    style={{ width: "100%", padding: "0.5rem" }}
-                  >
+                  <button type="button" onClick={() => setCoverImage("")} className={styles.btnSecondary} style={{ marginTop: "0.5rem", width: "100%" }}>
                     Remove Image
                   </button>
                 </div>
@@ -174,10 +192,9 @@ export default function CreatePostPage() {
             </div>
 
             <div className={styles.field}>
-              <label htmlFor="summary">Excerpt / Summary (SEO)</label>
+              <label htmlFor="summary">Summary (SEO)</label>
               <textarea
                 id="summary"
-                placeholder="A short description for the blog feed..."
                 value={summary}
                 onChange={(e) => setSummary(e.target.value)}
                 maxLength={500}
@@ -188,18 +205,9 @@ export default function CreatePostPage() {
             <div className={styles.field}>
               <label>Publishing Status</label>
               <div className={styles.radioGroup}>
-                <label>
-                  <input type="radio" value="draft" checked={publishState === "draft"} onChange={() => setPublishState("draft")} />
-                  Save as Draft
-                </label>
-                <label>
-                  <input type="radio" value="published" checked={publishState === "published"} onChange={() => setPublishState("published")} />
-                  Publish Immediately
-                </label>
-                <label>
-                  <input type="radio" value="scheduled" checked={publishState === "scheduled"} onChange={() => setPublishState("scheduled")} />
-                  Schedule for Later
-                </label>
+                <label><input type="radio" value="draft" checked={publishState === "draft"} onChange={() => setPublishState("draft")} /> Draft</label>
+                <label><input type="radio" value="published" checked={publishState === "published"} onChange={() => setPublishState("published")} /> Publish Now</label>
+                <label><input type="radio" value="scheduled" checked={publishState === "scheduled"} onChange={() => setPublishState("scheduled")} /> Schedule</label>
               </div>
             </div>
 
@@ -217,9 +225,7 @@ export default function CreatePostPage() {
             )}
 
             <div className={styles.btnGroup}>
-              <button type="button" onClick={() => router.back()} className={styles.btnSecondary} disabled={loading}>
-                Cancel
-              </button>
+              <button type="button" onClick={() => router.back()} className={styles.btnSecondary} disabled={loading}>Cancel</button>
               <button type="submit" className={styles.btnPrimary} disabled={loading || isUploadingImage}>
                 {loading ? "Saving..." : "Save Post"}
               </button>
