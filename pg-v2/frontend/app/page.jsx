@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Home() {
   return (
     <main id="main-content" style={{ padding: '4rem 2rem', textAlign: 'center' }}>
+      <ThemeToggle />
       <h1>Productivity Gourmet Homepage</h1>
       <p style={{ marginBottom: '2rem' }}>We will build this in Stage 9.</p>
       

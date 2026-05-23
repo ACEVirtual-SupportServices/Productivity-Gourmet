@@ -2,12 +2,19 @@ import Link from "next/link";
 import Image from "next/image"; 
 import styles from "./PostCard.module.scss";
 
-export default function PostCard({ post }) {
+export default function PostCard({ post, priority }) {
   return (
     <article className={styles.card} aria-labelledby={`post-title-${post.id}`}>
       {post.cover_image && (
         <div className={styles.cover} aria-hidden="true">
-          <Image src={post.cover_image} alt="" fill className={styles.coverImg} />
+          <Image
+            src={post.cover_image}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 400px"
+            className={styles.coverImg}
+            priority={priority}
+          />
         </div>
       )}
       
