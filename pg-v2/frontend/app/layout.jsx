@@ -2,7 +2,7 @@ import { Playwrite_GB_S, Syne, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "../styles/globals.scss";
 
-// 1. Handwriting font for headings
+// Handwriting font for headings
 // Note: We map this to --font-serif so it automatically applies to all h1-h6 tags
 const fontHeading = Playwrite_GB_S({
   weight: "400",
@@ -10,14 +10,14 @@ const fontHeading = Playwrite_GB_S({
   display: "swap",
 });
 
-// 2. Trendy, modern sans-serif for body text
+// modern sans-serif for body text
 const fontSans = Syne({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-// 3. Keep Mono for code snippets
+// Mono for code snippets
 const fontMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-mono",

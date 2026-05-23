@@ -39,7 +39,6 @@ export default function AnalyticsDashboard() {
   return (
     <div className={styles.dashboard}>
       <header className={styles.header}>
-        {/* Your handwriting font will automatically apply to this h1 */}
         <h1>Analytics Overview</h1>
       </header>
 

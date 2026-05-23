@@ -23,7 +23,6 @@ export default function ManagePosts() {
     async function fetchPosts() {
       try {
         const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
-        // Calls the correct route in admin_posts.py
         const res = await fetch(`${baseUrl}/api/admin/posts`, {
           credentials: "include", 
         });
@@ -48,7 +47,6 @@ export default function ManagePosts() {
     
     try {
       const baseUrl = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
-      // Calls the correct delete route in posts.py
       const res = await fetch(`${baseUrl}/api/posts/${postToDelete.id}`, {
         method: "DELETE",
         credentials: "include",
