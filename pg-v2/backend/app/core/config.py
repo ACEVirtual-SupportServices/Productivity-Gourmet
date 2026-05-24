@@ -15,6 +15,8 @@ class Settings(BaseSettings):
     JWT_SECRET_KEY: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7
 
+    FRONTEND_URL: str | None = None
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
