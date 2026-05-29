@@ -14,8 +14,8 @@ from app.api.admin_posts import router as admin_posts_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+    # async with engine.begin() as conn:
+    #     await conn.run_sync(Base.metadata.create_all)
     start_scheduler()
     yield
 app = FastAPI(title=settings.PROJECT_NAME, lifespan=lifespan)
