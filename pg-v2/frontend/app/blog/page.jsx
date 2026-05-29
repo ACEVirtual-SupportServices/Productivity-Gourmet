@@ -1,5 +1,7 @@
 import { getPosts } from "@/lib/api"; 
 import CategoryFilter from "@/components/blog/CategoryFilter";
+import PublicHeader from "@/components/public/PublicHeader";
+import PublicFooter from "@/components/public/PublicFooter";
 
 export const metadata = {
   title: "The Plog | Productivity Gourmet",
@@ -13,6 +15,7 @@ export default async function PlogPage() {
 
   return (
     <main id="main-content">
+      <PublicHeader />
       <section aria-labelledby="plog-heading" style={{ padding: '4rem 1.5rem', background: 'var(--color-bg-hero)', textAlign: 'center' }}>
         <div>
           <p aria-hidden="true" style={{ color: 'var(--color-primary-text)', fontWeight: 600 }}>— The Plog</p>
@@ -29,6 +32,7 @@ export default async function PlogPage() {
       <section aria-label="Blog posts" style={{ padding: '4rem 1.5rem', maxWidth: '1200px', margin: '0 auto' }}>
         <CategoryFilter categories={CATEGORIES} allPosts={posts} />
       </section>
+      <PublicFooter/>
     </main>
   );
 }
