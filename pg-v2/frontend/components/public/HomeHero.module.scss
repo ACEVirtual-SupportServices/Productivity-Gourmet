@@ -75,12 +75,24 @@
   margin-top: $space-2;
 }
 
+@use '../../styles/mixins' as *;
+
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: $space-4;
 
   @include md {
+    grid-template-columns: repeat(2, 1fr);
     gap: $space-6;
   }
 }
+// .statsGrid {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: $space-4;
+
+//   @include md {
+//     gap: $space-6;
+//   }
+// }
