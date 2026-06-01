@@ -1,0 +1,32 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.prose {
+  @include prose-container; // Restricts width for readability
+  padding-block: $space-10;
+
+  h2 {
+    font-size: 1.75rem;
+    color: var(--color-black);
+    margin-bottom: $space-6;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-body);
+    margin-bottom: $space-4;
+
+    a {
+      color: var(--color-primary); // Your teal variable
+      text-decoration: underline;
+      text-decoration-color: transparent; // Hides underline by default
+      text-underline-offset: 4px;
+      transition: text-decoration-color 0.2s ease;
+
+      &:hover {
+        text-decoration-color: var(--color-primary); // Underline appears on hover
+      }
+    }
+  }
+}
