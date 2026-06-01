@@ -1,0 +1,83 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.article {
+  padding-bottom: $space-12;
+}
+
+.hero {
+  padding-block: $space-16 $space-10;
+  text-align: center;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.title {
+  font-family: var(--font-sans); // Or serif, based on your SEO/typography choice
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-black);
+  line-height: 1.1;
+  margin-bottom: $space-4;
+}
+
+.eyebrow {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: $space-6;
+}
+
+.heroDesc {
+  font-size: 1.1rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.packagesWrapper {
+  margin-block: $space-12;
+}
+
+/* Add to existing file */
+.tiersGrid {
+  display: grid;
+  gap: $space-6;
+  margin-block: $space-12 $space-8;
+
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.paymentTerms {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  padding: $space-6;
+  border-radius: $border-radius;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: $space-16;
+  max-width: 800px;
+  margin-inline: auto;
+  border: 1px solid var(--color-border);
+}
+
+.pricingHeader {
+  text-align: center;
+  margin-bottom: $space-10;
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--color-black);
+    margin-bottom: $space-3;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+}

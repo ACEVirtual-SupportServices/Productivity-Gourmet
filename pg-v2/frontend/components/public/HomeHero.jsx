@@ -13,7 +13,7 @@ export default function HomeHero() {
           {/* Left Column: Copy & Actions */}
           <div className={styles.content}>
             <ScrollReveal direction="up" delay={0}>
-              <p className={styles.eyebrow} aria-hidden="true">Virtual Assistant & Operations Support</p>
+              <p className={styles.eyebrow} aria-hidden="true">Operations & Client communications support</p>
             </ScrollReveal>
 
             {/* <ScrollReveal direction="up" delay={100}>
@@ -31,7 +31,7 @@ export default function HomeHero() {
 
             <ScrollReveal direction="up" delay={100}>
               <h1 className={styles.subhead}>
-                Virtual Assistant & Operations Support for Service Providers, Executives & Creators
+                Operations & Communications partner for service businesses
               </h1>
             </ScrollReveal>
 
@@ -45,7 +45,7 @@ export default function HomeHero() {
               <p className={styles.description}>
                 You are good at what you do. The communications, inbox management, 
                 and operational layer around it is where things break down. 
-                I step in at exactly that point — and push for better.
+                I step in at exactly that point, and push for better.
               </p>
             </ScrollReveal>
 
@@ -82,8 +82,8 @@ export default function HomeHero() {
             
             <ScrollReveal direction="left" delay={600}>
               <StatCard 
-                value="AI+" 
-                label="Assisted & Human-Led" 
+                value="Always covered" 
+                label="Even when you cannot be" 
               />
             </ScrollReveal>
           </div>
