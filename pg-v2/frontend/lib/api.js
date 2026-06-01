@@ -1,10 +1,7 @@
 const getBaseUrl = () => {
-    if (typeof window === 'undefined') {
-        // We are on the server (Server Component)
-        return process.env.INTERNAL_API_URL;
-    }
-    // We are in the browser (Client Component)
-    return process.env.NEXT_PUBLIC_API_URL;
+    // We add a fallback URL just in case the environment variable fails 
+    // during the Vercel build phase. Replace the fallback with your actual Render URL.
+    return process.env.NEXT_PUBLIC_API_URL || "https://productivity-gourmet.onrender.com";
 };
 
 export async function getPosts() {

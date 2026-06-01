@@ -1,22 +1,23 @@
 import HomeHero from '@/components/public/HomeHero';
 import HomeServices from '@/components/public/HomeService';
-import HomeCTA from '@/components/public/HomeCTA';
+import CTA from '@/components/public/CTA';
 
 export const metadata = {
   title: 'Productivity Gourmet | Operations Support',
-  description: 'Virtual assistant and operations support for service providers, executives, and creators.',
+  description: 'Operations & Executive support service providers, executives, and creators.',
 };
 
 export default function Home() {
   return (
-    // Note: We removed the hardcoded style tags and ThemeToggle from here.
-    // The ThemeToggle is now handled in your custom mobile/desktop header.
     <>
       <HomeHero />
       <HomeServices />
-      <HomeCTA />
-      
-      {/* We will stack <HomeServices /> and <HomeCTA /> below this later */}
+      <CTA 
+        title="The Irony: Success Is Killing Your Business"
+        description="More clients means more messages. More messages means less time delivering. Less delivery time means unhappy clients. I break this cycle."
+        buttonText="Break Free"
+        buttonHref="/contact"
+      />
     </>
   );
 }

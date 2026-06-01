@@ -17,8 +17,9 @@ export default function PublicFooter() {
               Productivity Gourmet
             </Link>
             <p>
-              Virtual assistant and operations support for service providers, 
-              executives, and creators. US, UK, and EMEA.
+              {/* Virtual assistant and operations support for service providers, 
+              executives, and creators. US, UK, and EMEA. */}
+              Operations and client communications support for service providers, executives, and creators. US, UK, and EMEA.
             </p>
             <div className={styles.socials}>
               <a href="https://www.linkedin.com/in/productivity-gourmet" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -43,7 +44,7 @@ export default function PublicFooter() {
               <li><Link href="/services">Customer Service</Link></li>
               <li><Link href="/services">Client Communications</Link></li>
               <li><Link href="/services">Social Media Inbox</Link></li>
-              <li><Link href="/services">Virtual Assistant</Link></li>
+              <li><Link href="/services">Operations & Executive support</Link></li>
             </ul>
           </div>
 

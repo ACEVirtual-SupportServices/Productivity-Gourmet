@@ -1,0 +1,151 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.hero {
+  padding-block: $space-16 $space-10;
+  text-align: center;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.title {
+  font-family: var(--font-sans); 
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-black);
+  line-height: 1.1;
+  margin-bottom: $space-6;
+}
+
+.description {
+  font-size: 1.15rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: $space-12;
+}
+
+
+.navPills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-4;
+  margin-bottom: $space-12;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-6;
+  border-radius: $border-radius-pill;
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: transparent;
+
+  &:hover {
+    background-color: var(--color-primary-light);
+    transform: translateY(-2px);
+  }
+
+  // Target the SVG passed from the data array
+  svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}
+
+// When jumping to an anchor link, offset it so your fixed sticky header doesn't cover the card
+.anchorOffset {
+  scroll-margin-top: 120px; 
+}
+
+// .statsGrid {
+//   display: grid;
+//   grid-template-columns: 1fr; // Mobile: 1 column stack
+//   gap: 1.5rem;
+//   margin-bottom: 4rem;
+  
+//   // The constraints to stop it stretching
+//   max-width: 900px; 
+//   margin-inline: auto;
+
+//   // NATIVE CSS MEDIA QUERY - Bypassing the @include md mixin
+//   @media (min-width: 768px) {
+//     grid-template-columns: repeat(2, 1fr); // Tablet: 2x2 grid
+//   }
+
+//   @media (min-width: 1024px) {
+//     grid-template-columns: repeat(4, 1fr); // Desktop: 4-in-a-row
+//   }
+// }
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-4;
+  margin-bottom: $space-10;
+  max-width: 900px; 
+  margin-inline: auto;
+
+  @include md {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-6;
+  }
+}
+
+.banner {
+  background-color: var(--color-primary-light); // Very light teal tint
+  padding: $space-4 $space-6;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--color-body);
+  border-radius: $border-radius;
+  margin-bottom: $space-20;
+}
+
+.servicesSection {
+  padding-bottom: $space-20;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+  margin-bottom: $space-12;
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--color-black);
+    margin-bottom: $space-4;
+  }
+
+  p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include lg {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
