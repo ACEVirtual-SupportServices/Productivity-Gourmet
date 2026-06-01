@@ -75,8 +75,6 @@
   margin-top: $space-2;
 }
 
-@use '../../styles/mixins' as *;
-
 .statsGrid {
   display: grid;
   grid-template-columns: 1fr;
