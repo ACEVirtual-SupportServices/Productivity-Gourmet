@@ -2,7 +2,7 @@
 @use '../../styles/mixins' as *;
 
 .card {
-  background-color: var(--color-primary-light); // The light teal background
+  background-color: var(--color-bg-alt); // The light teal background
   border-radius: $border-radius;
   border: 1px solid var(--color-primary);
   padding: $space-6;
