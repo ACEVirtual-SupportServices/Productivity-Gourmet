@@ -47,6 +47,10 @@
   font-size: 0.95rem;
   transition: all 0.2s ease;
   background-color: transparent;
+  
+  @media (min-width: 768px) {
+    white-space: nowrap; // Only prevent text wrapping on larger screens
+  }
 
   &:hover {
     background-color: var(--color-primary-light);
