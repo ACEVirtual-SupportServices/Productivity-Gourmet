@@ -16,6 +16,7 @@ class Post(Base):
     category: Mapped[str] = mapped_column(String(100), nullable=False)
     read_time: Mapped[int] = mapped_column(Integer, default=1)
     is_published: Mapped[bool] = mapped_column(Boolean, default=False)
+    is_archived: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     analytics_public: Mapped[bool] = mapped_column(Boolean, default=False)
     scheduled_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

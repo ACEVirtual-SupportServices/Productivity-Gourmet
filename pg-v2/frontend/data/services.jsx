@@ -166,7 +166,8 @@ export const servicesDatabase = {
     title: "Customer Service Management for High-Volume Brands",
     eyebrow: "Your customers have questions. I have answers.",
     heroDescription: [
-      "Outsourced customer service for e-commerce brands and high-volume service businesses. I handle enquiries, ease anxious customers, and escalate what needs your attention — using Airtable-based systems built around how your business works."
+      "More customers is the goal. The enquiries, complaints, and anxious delivery questions that come with them are not something your business should stumble over. I handle your customer service professionally, in your brand voice, using systems built around how your business actually works, so your customers feel looked after and you stay focused on running the thing.",
+      // "Outsourced customer service for e-commerce brands and high-volume service businesses. I handle enquiries, ease anxious customers, and escalate what needs your attention — using Airtable-based systems built around how your business works."
     ],
     availability: [], 
     packages: [
@@ -174,12 +175,11 @@ export const servicesDatabase = {
         id: "audit-build",
         tag: "START HERE",
         title: "Client Communications Audit & System Build",
-        price: "$3,000",
+        price: "$2,500",
         billing: "one-time",
         description: [
-          "Before ongoing management can work, your client communications need a real foundation. This is a full audit — how you are currently showing up to leads and existing clients, what is getting missed, and what needs to change. You come out with a clean inbox, a system built around how you actually work, and a template library that sounds like you wrote every word yourself.",
-          "For inboxes accumulated over several years — the kind where unread emails number in the tens of thousands — I offer a deeper Communications Overhaul at $5,000. The same outcome, built for a significantly larger scope of work.",
-          "Most clients move straight to a monthly plan after the Audit. Think of it as the setup; the retainer is the maintenance."
+          "Before ongoing customer service management can work, the infrastructure needs to exist. This is a full assessment of how you are currently handling customer enquiries, followed by a custom Airtable CRM build, a template library created in your brand voice, and a clear escalation framework so every situation has a defined response path.",
+          "For businesses with multiple channels, existing data to migrate, or a small team that needs training on the new system, the System Overhaul at $4,000 covers that scope. Most clients move straight to a monthly plan after either option. Think of it as the infrastructure; the retainer is the operation running on top of it."
         ],
         features: [
           "Full client communications audit across your inbox",
@@ -196,7 +196,9 @@ export const servicesDatabase = {
         buttonHref: "/contact?package=audit-build",
         limitedSpotsWarning: "Spots are limited and filled first come, first served."
       }
-    ], 
+    ],
+    pricingHeading: "Choose Your Monthly Plan",
+    pricingSubheading: "Ongoing client communications management billed monthly. All plans include a weekly summary report.",
     pricingTiers: [
       {
         id: "core",
@@ -234,7 +236,8 @@ export const servicesDatabase = {
           "Daily monitoring including weekends",
           "Everything in Growth",
           "Full customer service management including proactive follow-up on unresolved tickets",
-          "Monthly strategy session to review patterns and improve response quality"
+          "Monthly strategy session to review patterns and improve response quality",
+          "Response time: Same-day priority, urgent issues within 4hr"
         ]
       }
     ],
@@ -293,7 +296,7 @@ export const servicesDatabase = {
     crossSells: ['client-communications', 'virtual-assistant']
   },
   
-  // ── 3. STUBS FOR REMAINING SERVICES ──
+  // social inbox
   'social-inbox': {
     title: "Social Media Inbox Management for Creators",
     eyebrow: "Your next brand deal should not be rotting in a DM request.",
@@ -307,6 +310,7 @@ export const servicesDatabase = {
     crossSells: []
   },
 
+  // virtual assistant
   'virtual-assistant': {
     title: "Executive Virtual Assistant Services",
     eyebrow: "Stay Ahead of the Pressure",

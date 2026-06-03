@@ -96,7 +96,7 @@ export default function CommentsModeration() {
   if (error) return <div style={{ padding: "2rem", color: "var(--color-error)" }}>{error}</div>;
 
   return (
-    <main style={{ padding: "2rem", maxWidth: "1000px", margin: "0 auto" }}>
+    <main className={styles.page}>
       <div className={styles.header}>
         <h1>Comments Moderation</h1>
         <span style={{ color: "var(--color-muted)" }}>

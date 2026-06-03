@@ -2,7 +2,6 @@
 @use '../../styles/mixins' as *;
 
 .footer {
-  // Hardcoded to maintain the dark grounding regardless of the theme toggle
   background-color: #1A2525; 
   color: #D1D9D9; 
   padding-block: $space-16 $space-6;
@@ -20,26 +19,9 @@
   }
 
   @include lg {
-    // 5 columns total. Brand gets 2 fractions, the other 4 get 1 each.
     grid-template-columns: 2fr 1fr 1fr 1fr; 
   }
 }
-// .grid {
-//   display: grid;
-//   grid-template-columns: 1fr;
-//   gap: $space-10;
-//   margin-bottom: $space-12;
-
-//   @include md {
-//     grid-template-columns: repeat(2, 1fr);
-//   }
-
-//   @include lg {
-//     // Column 1 gets 2 fractions of space, the rest get 1. 
-//     // This gives your brand description room to breathe.
-//     grid-template-columns: 2fr 1fr 1fr 1fr; 
-//   }
-// }
 
 .brandCol {
   display: flex;
@@ -47,7 +29,7 @@
   gap: $space-4;
 
   .logo {
-    font-family: var(--font-serif); // Using the Playwrite_GB_S you confirmed
+    font-family: var(--font-serif);
     font-size: 1.5rem;
     color: var(--color-primary);
     text-decoration: none;

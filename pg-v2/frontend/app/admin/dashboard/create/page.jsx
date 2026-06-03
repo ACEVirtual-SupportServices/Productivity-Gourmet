@@ -116,7 +116,7 @@ export default function CreatePostPage() {
   }
 
   return (
-    <main style={{ padding: "2rem", maxWidth: "1200px", margin: "0 auto" }}>
+    <main className={styles.page}>
       <form onSubmit={handleSubmit}>
         <div className={styles.header}>
           <h1>Create New Post</h1>

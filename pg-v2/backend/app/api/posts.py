@@ -110,18 +110,34 @@ async def delete_post(
 @router.get("/", response_model=List[PostResponse])
 async def get_posts(db: AsyncSession = Depends(get_db)):
     """Fetch all published blog posts."""
-    stmt = select(Post).where(Post.is_published == True).order_by(Post.created_at.desc())
+    stmt = select(Post).where(Post.is_published == True, Post.is_archived == False).order_by(Post.created_at.desc())
     result = await db.execute(stmt)
     return result.scalars().all()
 
 @router.get("/{slug}", response_model=PostResponse)
 async def get_post_by_slug(slug: str, db: AsyncSession = Depends(get_db)):
     """Fetch a single blog post by its slug."""
-    stmt = select(Post).where(Post.slug == slug)
+    stmt = select(Post).where(
+        Post.slug == slug,
+        Post.is_published == True,
+        Post.is_archived == False
+    )
     result = await db.execute(stmt)
     post = result.scalars().first()
-    
+
     if not post:
         raise HTTPException(status_code=404, detail="Post not found")
-        
+
     return post
+
+# @router.get("/{slug}", response_model=PostResponse)
+# async def get_post_by_slug(slug: str, db: AsyncSession = Depends(get_db)):
+#     """Fetch a single blog post by its slug."""
+#     stmt = select(Post).where(Post.slug == slug)
+#     result = await db.execute(stmt)
+#     post = result.scalars().first()
+    
+#     if not post:
+#         raise HTTPException(status_code=404, detail="Post not found")
+        
+#     return post

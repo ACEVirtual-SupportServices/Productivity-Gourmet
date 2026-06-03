@@ -4,6 +4,8 @@ import Image from "next/image";
 import styles from './page.module.scss'
 import CommentSection from "@/components/blog/CommentSection";
 import ViewTracker from "@/components/blog/ViewTracker";
+import PublicHeader from "@/components/public/PublicHeader";
+import PublicFooter from "@/components/public/PublicFooter";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -32,6 +34,7 @@ export default async function BlogPostPage({ params }) {
     <main id="main-content">
       {/* The invisible tracker fires the API request on load */}
       <ViewTracker slug={slug} />
+      <PublicHeader />
 
       <article className={styles.article} aria-labelledby="post-heading">
         
@@ -77,6 +80,7 @@ export default async function BlogPostPage({ params }) {
         />        
       </article>
       <CommentSection postId={post.id} />
+      <PublicFooter />
     </main>
   );
 }
