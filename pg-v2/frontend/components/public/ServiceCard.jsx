@@ -1,5 +1,3 @@
-// components/public/ServiceCard.jsx
-
 import Link from 'next/link';
 import styles from './ServiceCard.module.scss';
 
@@ -7,7 +5,6 @@ export default function ServiceCard({ title, description, href, icon }) {
   return (
     <Link href={href} className={styles.card}>
       <div className={styles.iconWrapper}>
-        {/* We MUST wrap the incoming path data in an SVG canvas */}
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           {icon}
         </svg>

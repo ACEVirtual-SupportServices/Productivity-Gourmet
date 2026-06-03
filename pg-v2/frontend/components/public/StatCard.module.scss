@@ -2,11 +2,11 @@
 @use '../../styles/mixins' as *;
 
 .card {
-  background-color: var(--color-bg-alt); // Pure white from your variables
+  background-color: var(--color-bg-alt); // alternates btw themes
   padding: $space-6;
   border-radius: $border-radius;
   border: 1px solid var(--color-border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); // Soft, premium shadow
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -9,6 +9,7 @@ import { Table } from '@tiptap/extension-table';
 import { TableRow } from '@tiptap/extension-table-row';
 import { TableCell } from '@tiptap/extension-table-cell';
 import { TableHeader } from '@tiptap/extension-table-header';
+import { SlashCommand } from './SlashCommand';
 import styles from './Editor.module.scss';
 
 const MenuBar = ({ editor }) => {
@@ -44,8 +45,16 @@ const MenuBar = ({ editor }) => {
 
   return (
     <div className={styles.toolbar} role="toolbar">
+      <div className={styles.mobileControls}>
+        <button type="button" onClick={() => editor.chain().focus().undo().run()} className={styles.toolbarBtn} disabled={!editor.can().undo()}>↩ Undo</button>
+        <button type="button" onClick={() => editor.chain().focus().redo().run()} className={styles.toolbarBtn} disabled={!editor.can().redo()}>↪ Redo</button>
+        <span className={styles.toolbarDivider}>|</span>
+      </div>
+
       <button type="button" onClick={() => editor.chain().focus().toggleBold().run()} className={`${styles.toolbarBtn} ${editor.isActive('bold') ? styles.active : ''}`}>Bold</button>
       <button type="button" onClick={() => editor.chain().focus().toggleItalic().run()} className={`${styles.toolbarBtn} ${editor.isActive('italic') ? styles.active : ''}`}>Italic</button>
+
+      <button type="button" onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()} className={`${styles.toolbarBtn} ${editor.isActive('heading', { level: 1 }) ? styles.active : ''}`}>H1</button>
       <button type="button" onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} className={`${styles.toolbarBtn} ${editor.isActive('heading', { level: 2 }) ? styles.active : ''}`}>H2</button>
       <button type="button" onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} className={`${styles.toolbarBtn} ${editor.isActive('heading', { level: 3 }) ? styles.active : ''}`}>H3</button>
       <button type="button" onClick={() => editor.chain().focus().toggleBlockquote().run()} className={`${styles.toolbarBtn} ${editor.isActive('blockquote') ? styles.active : ''}`}>Quote</button>
@@ -86,6 +95,7 @@ export default function RichTextEditor({ content = '', onChange }) {
       TableRow,
       TableHeader,
       TableCell,
+      SlashCommand,
     ],
     content: content,
     onUpdate: ({ editor }) => {

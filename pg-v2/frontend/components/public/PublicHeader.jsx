@@ -1,4 +1,4 @@
-"use client"; // We need client-side state for the menu
+"use client";
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';

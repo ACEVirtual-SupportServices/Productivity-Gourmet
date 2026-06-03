@@ -71,7 +71,8 @@
 
 // When jumping to an anchor link, offset it so your fixed sticky header doesn't cover the card
 .anchorOffset {
-  scroll-margin-top: 120px; 
+  scroll-margin-top: 120px;
+  height: 100%;
 }
 
 // .statsGrid {
