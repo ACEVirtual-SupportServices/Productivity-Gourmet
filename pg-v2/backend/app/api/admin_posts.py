@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from fastapi import HTTPException
@@ -12,14 +12,29 @@ router = APIRouter()
 
 @router.get("")
 async def get_all_admin_posts(
+    archived: bool = Query(False),
     db: AsyncSession = Depends(get_db),
     admin: str = Depends(get_current_admin)
 ):
-    """Admin ONLY: Fetches all posts (drafts, scheduled, published)."""
-    stmt = select(Post).order_by(Post.created_at.desc())
+    """Admin ONLY: Fetches all posts. Pass ?archived=true for the archive tab."""
+    stmt = (
+        select(Post)
+        .where(Post.is_archived == archived)
+        .order_by(Post.created_at.desc())
+    )
     result = await db.execute(stmt)
-    
     return result.scalars().all()
+
+# @router.get("")
+# async def get_all_admin_posts(
+#     db: AsyncSession = Depends(get_db),
+#     admin: str = Depends(get_current_admin)
+# ):
+#     """Admin ONLY: Fetches all posts (drafts, scheduled, published)."""
+#     stmt = select(Post).order_by(Post.created_at.desc())
+#     result = await db.execute(stmt)
+    
+#     return result.scalars().all()
 
 @router.get("/{post_id}")
 async def get_single_admin_post(
@@ -56,3 +71,22 @@ async def update_admin_post(
     await db.commit()
     await db.refresh(post)
     return post
+
+@router.patch("/{post_id}/archive")
+async def toggle_archive_post(
+    post_id: str,
+    db: AsyncSession = Depends(get_db),
+    admin: str = Depends(get_current_admin)
+):
+    """Toggles is_archived. Works for both archiving and unarchiving."""
+    stmt = select(Post).where(Post.id == post_id)
+    result = await db.execute(stmt)
+    post = result.scalar_one_or_none()
+
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+
+    post.is_archived = not post.is_archived
+    await db.commit()
+    await db.refresh(post)
+    return {"id": str(post.id), "is_archived": post.is_archived}

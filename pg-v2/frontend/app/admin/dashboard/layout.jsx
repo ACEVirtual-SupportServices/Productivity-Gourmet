@@ -1,10 +1,11 @@
 import Sidebar from "@/components/admin/Sidebar";
-import { Inter } from 'next/font/google';
+import { Inconsolata } from 'next/font/google';
 import styles from "./layout.module.scss";
 import AdminAuthGuard from "@/components/admin/AdminAuthGuard";
 
-const inter = Inter({ 
+const inconsolata = Inconsolata({ 
   subsets: ['latin'],
+  weight: ['400', '500', '700'],
   variable: '--font-admin-inter',
 });
 
@@ -16,7 +17,7 @@ export const metadata = {
 export default function DashboardLayout({ children }) {
   return (
     <AdminAuthGuard>
-      <div className={`${styles.dashboardWrapper} ${inter.variable}`}>
+      <div className={`${styles.dashboardWrapper} ${inconsolata.variable}`}>
         <Sidebar />
         <main className={styles.mainContent}>
           {children}

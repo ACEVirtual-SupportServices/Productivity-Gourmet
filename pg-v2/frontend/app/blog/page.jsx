@@ -18,9 +18,17 @@ export default async function PlogPage() {
       <PublicHeader />
       <section aria-labelledby="plog-heading" style={{ padding: '4rem 1.5rem', background: 'var(--color-bg-hero)', textAlign: 'center' }}>
         <div>
-          <p aria-hidden="true" style={{ color: 'var(--color-primary-text)', fontWeight: 600 }}>— The Plog</p>
+          <p aria-hidden="true" style={{ color: '#00A8A8', fontWeight: 600 }}>— The Plog</p>
           <h1 id="plog-heading" style={{ marginBottom: '1rem' }}>
-            Behind the <em>Operations</em>
+            Behind the{' '}
+            <span
+              style={{
+                color: '#00A8A8',
+                fontStyle: 'italic',
+              }}
+            >
+              Operations
+            </span>
           </h1>
           <p style={{ maxWidth: '600px', margin: '0 auto', color: 'var(--color-muted)' }}>
             Real talk on client communications, systems that actually work, and what
