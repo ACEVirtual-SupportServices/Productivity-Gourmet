@@ -1,0 +1,117 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.section {
+  padding-block: $space-4 $space-6;
+}
+
+.bioGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+
+  @include lg {
+    grid-template-columns: 1fr 2fr; 
+    gap: $space-16;
+  }
+}
+
+.eyebrow {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-primary);
+  margin-bottom: $space-2;
+//   outline: 1px solid red;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--color-black);
+  line-height: 1.1;
+  margin-bottom: $space-2;
+  
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.proseBlock {
+  max-width: 720px;
+  min-width: 0;
+  
+  p {
+    font-size: 1.1rem;
+    color: var(--color-body);
+    line-height: 1.7;
+    margin-bottom: $space-4;
+  }
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: $space-12;
+//   outline: 1px solid red;
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--color-black);
+    margin-bottom: $space-4;
+  }
+
+  p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+  }
+}
+
+.capabilitiesGrid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: $space-6;
+  margin-bottom: $space-20;
+//   outline: 1px solid red;
+
+  @include md { grid-template-columns: repeat(2, 1fr); }
+  @include lg { grid-template-columns: repeat(4, 1fr); }
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-10;
+  margin-bottom: $space-20;
+
+  @include md { grid-template-columns: repeat(2, 1fr); }
+  @include lg { grid-template-columns: repeat(3, 1fr); }
+
+  .principle {
+    text-align: center;
+    min-width: 0;
+    
+    .number {
+      font-family: var(--font-sans);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      opacity: 0.2;
+      margin-bottom: $space-2;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--color-black);
+      margin-bottom: $space-4;
+    }
+
+    p {
+      color: var(--color-body);
+      line-height: 1.6;
+    }
+  }
+}
+
+.clients {
+    margin-bottom: $space-4;
+}
