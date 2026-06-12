@@ -82,16 +82,30 @@
   flex-direction: column;
 }
 
+// .statsGrid {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: $space-4;
+//   margin-bottom: $space-10;
+//   max-width: 900px;
+//   min-width: 0;
+//   margin-inline: auto;
+
+//   @include md {
+//     grid-template-columns: repeat(4, 1fr);
+//     gap: $space-6;
+//   }
+// }
+
 .statsGrid {
   display: grid;
+  // grid-template-columns: 1fr;
   grid-template-columns: repeat(2, 1fr);
   gap: $space-4;
   margin-bottom: $space-10;
-  max-width: 900px; 
-  margin-inline: auto;
 
   @include md {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: $space-6;
   }
 }
