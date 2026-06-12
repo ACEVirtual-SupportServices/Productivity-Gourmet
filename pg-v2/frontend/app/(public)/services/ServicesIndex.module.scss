@@ -99,8 +99,8 @@
 
 .statsGrid {
   display: grid;
-  // grid-template-columns: 1fr;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  // grid-template-columns: repeat(2, 1fr);
   gap: $space-4;
   margin-bottom: $space-10;
 
