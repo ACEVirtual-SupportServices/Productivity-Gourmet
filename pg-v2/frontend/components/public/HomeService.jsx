@@ -8,22 +8,22 @@ const servicesData = [
   {
     id: 1,
     title: 'Client Communications Management',
-    description: 'Professional email and client correspondence management for service providers and executives. Your leads followed up, your clients responded to, your inbox under control.',
+    description: 'Professional email and client correspondence management for service providers and executives. Your leads followed up, your clients responded to, your inbox under control, in your voice, to your standards.',
     href: '/services/client-communications',
     icon: <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
   },
   {
     id: 2,
     title: 'Customer Service Management',
-    description: 'Outsourced customer service for e-commerce brands and high-volume service businesses. I handle enquiries, ease anxious customers, and escalate what needs your attention.',
+    description: 'Outsourced customer service for e-commerce brands and high-volume service businesses. I handle enquiries, ease anxious customers, and escalate what needs your attention, using systems built around your business.',
     href: '/services/customer-service',
     icon: <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
   },
   {
     id: 3,
     title: 'Social Media Inbox Management',
-    description: 'DM and inbox management for content creators and influencers. I sort the brand deals from the noise, respond in your voice, and make sure no collaboration offer disappears.',
-    href: '/services/social-inbox',
+    description: 'DM and inbox management for content creators and influencers. I sort the brand deals from the noise, respond in your voice, and make sure no collaboration offer disappears into the backlog.',
+    href: '/services/social-media',
     icon: (
       <>
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -33,11 +33,20 @@ const servicesData = [
   },
   {
     id: 4,
-    title: 'Virtual Assistant Services',
-    description: 'AI-assisted operational support from flexible task management to high-trust Executive VA partnerships. I meet you at the level your business needs right now.',
-    href: '/services/virtual-assistant',
+    title: 'Operations & Executive Support',
+    description: 'End-to-end operations support built around how your business actually runs. Systems design, workflow management, process optimisation, CRM operations, documentation and automation. I handle the operational layer so you can focus on growth. At the executive level, I operate as a strategic partner with real authority over your backend.',
+    href: '/services/operations-support',
     icon: <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" />
   }
+  // {
+  //   cta: 
+  //     {
+  //     title: "Ready to Stop Running Your Business on Willpower Alone?",
+  //     description: "Tell me where the pressure is. We will work out the right level of support from there.",
+  //     buttonText: "Get Started",
+  //     buttonHref: "/contact"
+  //   }
+  // }
 ];
 
 export default function HomeServices() {
