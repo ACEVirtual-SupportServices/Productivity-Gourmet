@@ -12,8 +12,6 @@
   min-width: 0;
   width: 100%;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  // outline: 1px solid red !important;
-  // background-color: rgba(255, 0, 0, 0.05) !important;
 
   &:hover {
     transform: translateY(-4px);
@@ -27,27 +25,41 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-black);
-  margin: 0 0 $space-4 0;
+  margin: 0 0 0 0;
+  // outline: 1px solid red;
 }
 
-// PricingTierCard.module.scss
-.price {
-  font-family: var(--font-sans);
-  font-size: clamp(1.5rem, 5vw, 2.25rem); // ← scales down on small screens
-  font-weight: 700;
-  color: var(--color-primary);
-  margin: 0 0 $space-8 0;
-  overflow-wrap: break-word;
-  word-break: break-word;
+.sub {
+  color: var(--color-body);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0 0 0 0;
+  // outline: 1px solid red;
 }
 
-// .price {
-//   font-family: var(--font-sans);
-//   font-size: 2.25rem;
-//   font-weight: 700;
-//   color: var(--color-primary);
-//   margin: 0 0 $space-8 0;
-// }
+.pricediv {
+  // outline: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $space-2;
+
+  .price {
+    font-family: var(--font-sans);
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 $space-2 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .pricesub {
+    color: var(--color-body);
+    font-size: 0.95rem;
+    margin: 0 0 0 0;
+    // outline: 1px solid red;
+  }
+}
 
 .features {
   list-style: none;
@@ -75,5 +87,29 @@
       stroke-linejoin: round;
       margin-top: 2px;
     }
+  }
+}
+
+.linkText {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+  }
+
+  .a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
   }
 }

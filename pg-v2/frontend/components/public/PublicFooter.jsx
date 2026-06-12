@@ -41,10 +41,10 @@ export default function PublicFooter() {
           <div className={styles.linkCol}>
             <h4>Services</h4>
             <ul>
-              <li><Link href="/services">Customer Service</Link></li>
-              <li><Link href="/services">Client Communications</Link></li>
-              <li><Link href="/services">Social Media Inbox</Link></li>
-              <li><Link href="/services">Operations & Executive support</Link></li>
+              <li><Link href="/services/customer-service">Customer Service</Link></li>
+              <li><Link href="/services/client-communications">Client Communications</Link></li>
+              <li><Link href="/services/social-media">Social Media Inbox management</Link></li>
+              <li><Link href="/services/operations-support">Operations & Executive support</Link></li>
             </ul>
           </div>
 

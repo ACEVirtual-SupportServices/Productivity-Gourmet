@@ -4,7 +4,12 @@ import ScrollReveal from './ScrollReveal';
 import styles from './CTA.module.scss';
 
 // Now accepting dynamic props to render completely different copy per page
-export default function CTA({ title, description, buttonText, buttonHref }) {
+export default function CTA({ data }) {
+  const title = data?.title || "Ready to get started?";
+  const description = data?.description || "Let's build a system that works for you.";
+  const buttonText = data?.buttonText || "Get in Touch";
+  const buttonHref = data?.buttonHref || "/contact";
+
   return (
     <section className={styles.section}>
       <Container>
