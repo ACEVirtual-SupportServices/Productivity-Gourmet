@@ -44,11 +44,6 @@
   min-width: 0; // ← the magic line for flex/grid children
   // outline: 1px solid red !important;
 }
-// .packagesWrapper {
-//   margin-block: $space-12;
-//   outline: 1px solid red !important;
-//   background-color: rgba(255, 0, 0, 0.05) !important;
-// }
 
 .tiersGrid {
   display: grid;
@@ -56,35 +51,13 @@
   gap: $space-6;
   margin-block: $space-12 $space-8;
   width: 100%;
-  min-width: 0; // ← same here
-  // outline: 1px solid red !important;
-  // background-color: rgba(255, 0, 0, 0.05) !important;
+  min-width: 0;
+  box-sizing: border-box;
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (min-width: 1100px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
-// .tiersGrid {
-//   display: grid;
-//   grid-template-columns: 1fr; // Mobile: 1 column stack
-//   gap: $space-6;
-//   margin-block: $space-12 $space-8;
-//   outline: 1px solid red !important;
-//   background-color: rgba(255, 0, 0, 0.05) !important;
-
-//   // Tablet: Switch to 2 columns so they have room to breathe
-//   @media (min-width: 768px) {
-//     grid-template-columns: repeat(2, 1fr);
-//   }
-
-//   // Desktop: Only deploy the 3-column layout when the screen is wide enough!
-//   @media (min-width: 1100px) { 
-//     grid-template-columns: repeat(3, 1fr);
-//   }
-// }
 
 .paymentTerms {
   font-family: var(--font-sans);
@@ -94,9 +67,9 @@
   color: var(--color-muted);
   font-size: 0.95rem;
   line-height: 1.6;
-  text-align: center;
-  margin-bottom: $space-16;
-  max-width: 800px;
+  text-align: left;
+  margin-bottom: $space-6;
+  max-width: 100vw;
   margin-inline: auto;
   border: 1px solid var(--color-border);
 }

@@ -57,13 +57,39 @@ export default async function ServicePage({ params }) {
           <AvailabilityBar data={service.availability} />
         )}
 
-        {service.packages?.length > 0 && (
+        {service.startHere && (
+          <ScrollReveal direction="up" delay={0}>
+            <div className={styles.pricingHeader}>
+              <h2>{service.startHere}</h2>
+              {service.startHereSubheading && <p>{service.startHereSubheading}</p>}
+            </div>
+          </ScrollReveal>
+        )}
+
+        {/* {service.packages?.length > 0 && (
           <div className={styles.packagesWrapper}>
             {service.packages.map((pkg, idx) => (
               <PricingPackage key={pkg.id || idx} pkg={pkg} />
             ))}
           </div>
+        )} */}
+        {service.startHereTiers?.length > 0 && (
+          <div className={styles.tiersGrid}>
+            {service.startHereTiers.map((tier, idx) => (
+              <PricingTierCard key={tier.id || idx} tier={tier} index={idx} />
+            ))}
+          </div>
         )}
+
+        {service.monthlyTerms && (
+          <ScrollReveal direction="up" delay={200}>
+            <div className={styles.paymentTerms}>
+              {/* <strong>Monthly management plans require a completed Inbox Reset, Deep Clean or Extreme Overhaul,</strong> */}
+              {service.monthlyTerms}
+            </div>
+          </ScrollReveal>
+        )}
+
         {service.pricingHeading && (
           <ScrollReveal direction="up" delay={0}>
             <div className={styles.pricingHeader}>
@@ -84,7 +110,22 @@ export default async function ServicePage({ params }) {
         {service.paymentTerms && (
           <ScrollReveal direction="up" delay={200}>
             <div className={styles.paymentTerms}>
-              <strong>Payment Terms:</strong> {service.paymentTerms}
+              <strong>The Extra Course: Executive Add-On</strong>
+
+              {service.paymentTerms?.map((term, idx) => (
+                <p key={idx}>{term}</p>
+              ))}
+            </div>
+          </ScrollReveal>
+        )}
+        {service.paymentTermsII && (
+          <ScrollReveal direction="up" delay={200}>
+            <div className={styles.paymentTerms}>
+              <strong>Executive VA Payment Terms</strong>
+
+              {service.paymentTermsII?.map((term, idx) => (
+                <p key={idx}>{term}</p>
+              ))}
             </div>
           </ScrollReveal>
         )}
@@ -101,96 +142,7 @@ export default async function ServicePage({ params }) {
       </Container>
 
       {/* REUSED CTA WITH DYNAMIC COPY */}
-      <CTA 
-        title="Ready to fix the breakdown?"
-        description="Stop fighting your own operations. Let's build a system that works."
-        buttonText="Book a Fit Call"
-        buttonHref="/contact"
-      />
+      <CTA data={service.cta} />
     </article>
   );
 }
-
-// import { notFound } from 'next/navigation';
-// import { servicesDatabase } from '@/data/services';
-// import Container from '@/components/public/Container';
-// import ScrollReveal from '@/components/public/ScrollReveal';
-// import CTA from '@/components/public/CTA';
-// import AvailabilityBar from '@/components/public/AvailabilityBar';
-// import PricingPackage from '@/components/public/PricingPackage';
-// import ProseSection from '@/components/public/ProseSection';
-
-// // SCSS module specific to this page's layout tweaks (create this file with simple padding)
-// import styles from './ServicePage.module.scss'; 
-
-// // 1. Tell Next.js which routes to pre-build at compile time
-// export function generateStaticParams() {
-//   return Object.keys(servicesDatabase).map((slug) => ({
-//     slug: slug,
-//   }));
-// }
-
-// // 2. Dynamic Metadata for SEO
-// export async function generateMetadata({ params }) {
-//   const resolvedParams = await params;
-//   const service = servicesDatabase[resolvedParams.slug];
-//   if (!service) return { title: 'Service Not Found' };
-  
-//   return {
-//     title: `${service.title} | Productivity Gourmet`,
-//   };
-// }
-
-// // 3. The Main Page Component
-// export default async function ServicePage({ params }) {
-//   const resolvedParams = await params;
-//   const service = servicesDatabase[resolvedParams.slug];
-
-//   // Defensive routing: if they type a URL that doesn't exist in our DB, throw a 404
-//   if (!service) {
-//     notFound();
-//   }
-
-//   return (
-//     <article className={styles.article}>
-//       <Container>
-//         {/* HERO SECTION */}
-//         <div className={styles.hero}>
-//           <ScrollReveal direction="up" delay={0}>
-//             <h1 className={styles.title}>{service.title}</h1>
-//           </ScrollReveal>
-          
-//           <ScrollReveal direction="up" delay={100}>
-//             <p className={styles.eyebrow}>{service.eyebrow}</p>
-//           </ScrollReveal>
-
-//           {service.heroDescription.map((paragraph, idx) => (
-//             <ScrollReveal key={idx} direction="up" delay={200 + (idx * 50)}>
-//               <p className={styles.heroDesc}>{paragraph}</p>
-//             </ScrollReveal>
-//           ))}
-//         </div>
-
-//         {/* DATA COMPONENTS */}
-//         <AvailabilityBar data={service.availability} />
-
-//         <div className={styles.packagesWrapper}>
-//           {service.packages?.map((pkg, idx) => (
-//             <PricingPackage key={pkg.id || idx} pkg={pkg} />
-//           ))}
-//         </div>
-
-//         <ProseSection sections={service.contentSections} />
-
-//       </Container>
-
-//       {/* REUSED CTA WITH DYNAMIC COPY */}
-//       <CTA 
-//         title="Ready to fix the breakdown?"
-//         description="Stop fighting your own operations. Let's build a system that works."
-//         buttonText="Book a Fit Call"
-//         buttonHref="/contact"
-//       />
-//     </article>
-//   );
-// }

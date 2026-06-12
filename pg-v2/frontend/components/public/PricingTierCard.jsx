@@ -1,5 +1,6 @@
 import styles from './PricingTierCard.module.scss';
 import ScrollReveal from './ScrollReveal';
+import Link from 'next/link';
 
 export default function PricingTierCard({ tier, index }) {
   return (
@@ -7,7 +8,12 @@ export default function PricingTierCard({ tier, index }) {
     <ScrollReveal direction="up" delay={index * 150}>
       <div className={styles.card}>
         <h3 className={styles.title}>{tier.title}</h3>
-        <p className={styles.price}>{tier.price}</p>
+        <p className={styles.sub}>{tier.sub}</p>
+        <div className={styles.pricediv}>
+          <p className={styles.price}>{tier.price}</p>
+          <p className={styles.pricesub}>{tier.pricesub}</p>
+        </div>
+        
         
         <ul className={styles.features}>
           {tier.features.map((feature, idx) => (
@@ -19,6 +25,12 @@ export default function PricingTierCard({ tier, index }) {
             </li>
           ))}
         </ul>
+        <div className={styles.linkText}>
+          <Link className={styles.a} href="/contact">
+            {tier.link}
+            {tier.icon}
+          </Link> 
+        </div>
       </div>
     </ScrollReveal>
   );

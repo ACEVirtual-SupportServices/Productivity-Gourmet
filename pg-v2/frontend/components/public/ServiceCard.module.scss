@@ -67,6 +67,15 @@
   margin: 0 0 $space-4 0;
 }
 
+.subheading {
+  color: var(--color-body);
+  font-size: 0.80rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin: 0 0 $space-6 0;
+  flex-grow: 1; // Pushes the 'Learn More' link to the bottom if descriptions vary in length
+}
+
 .description {
   color: var(--color-muted);
   font-size: 0.95rem;

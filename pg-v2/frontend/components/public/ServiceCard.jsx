@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './ServiceCard.module.scss';
 
-export default function ServiceCard({ title, description, href, icon }) {
+export default function ServiceCard({ title, subheading, description, href, icon, price }) {
   return (
     <Link href={href} className={styles.card}>
       <div className={styles.iconWrapper}>
@@ -11,7 +11,9 @@ export default function ServiceCard({ title, description, href, icon }) {
       </div>
       
       <h3 className={styles.title}>{title}</h3>
+      <p className={styles.subheading}>{subheading}</p>
       <p className={styles.description}>{description}</p>
+      <p className={styles.title}>{price}</p>
       
       <div className={styles.linkText}>
         Learn More
