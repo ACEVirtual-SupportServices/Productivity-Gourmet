@@ -98,7 +98,7 @@ export default function ServicesIndex() {
             <StatCard value="24hr" label="Standard Response Time" />
           </ScrollReveal>
           <ScrollReveal direction="up" delay={500}>
-            <StatCard value="AI+" label="Assisted & Human-Led" />
+            <StatCard value="Always Covered" label="Even when you cannot be" />
           </ScrollReveal>
           <ScrollReveal direction="up" delay={600}>
             <StatCard value="WAT" label="Async-First, Flexible Timezone" />
