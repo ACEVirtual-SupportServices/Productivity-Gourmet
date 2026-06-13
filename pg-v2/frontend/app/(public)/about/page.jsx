@@ -95,7 +95,7 @@ export default function AboutPage() {
 
       <CTA 
         title="If This Sounds Like What You Have Been Looking For"
-        description="Tell me where the pressure is. I will tell you which service — or combination of services — makes sense for your business right now."
+        description="Tell me where the pressure is. I will tell you which service or combination of services makes sense for your business right now. Fill out a short form and I will be in touch to schedule a Fit Call."
         buttonText="Book a Fit Call"
         buttonHref="/contact"
       />

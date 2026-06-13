@@ -15,5 +15,6 @@ dependencies = [
     "pyjwt>=2.12.1",
     "python-multipart>=0.0.26",
     "python-slugify>=8.0.4",
+    "resend>=2.30.1",
     "sqlalchemy>=2.0.49",
 ]
