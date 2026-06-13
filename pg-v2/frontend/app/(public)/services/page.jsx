@@ -150,7 +150,7 @@ export default function ServicesIndex() {
       <CTA 
         title="Not Sure Which Service You Need?"
         description="That is what the Fit Call is for. Tell me where the pressure is and I will tell you which service or combination of services makes sense for your business right now."
-        buttonText="Book a Fit Call"
+        buttonText="Book a fit call"
         buttonHref="/contact"
       />
     </>

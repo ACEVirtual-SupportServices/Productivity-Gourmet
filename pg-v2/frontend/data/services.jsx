@@ -168,15 +168,15 @@ export const servicesDatabase = {
         heading: "You Might Also Need",
         paragraphs: [
           <>
-          If you are managing client-level communications through this service, you may also have a separate stream of customer-facing communications: order issues, support requests, transactional enquiries that require a different kind of handling. That is a distinct service. I manage it separately under <Link href="/">Customer Service Management</Link>. Many businesses need both, and they work well together without overlap.
+          If you are managing client-level communications through this service, you may also have a separate stream of customer-facing communications: order issues, support requests, transactional enquiries that require a different kind of handling. That is a distinct service. I manage it separately under <Link href="/services/customer-service">Customer Service Management</Link>. Many businesses need both, and they work well together without overlap.
           </>,
 
           <>
-          If you need broader operational support beyond the inbox: research, task management, process design, or automation. My <Link href="/">Operations & Executive Support</Link> covers that side of your business.
+          If you need broader operational support beyond the inbox: research, task management, process design, or automation. My <Link href="/services/operations-support">Operations & Executive Support</Link> covers that side of your business.
           </>,
 
           <>
-          If you are also managing a social media presence with high DM volume, with brand enquiries, collaboration requests, or fan messages, I handle that separately under <Link href="/">Social Media Inbox Management</Link>.
+          If you are also managing a social media presence with high DM volume, with brand enquiries, collaboration requests, or fan messages, I handle that separately under <Link href="/services/social-media">Social Media Inbox Management</Link>.
           </>
         ]
       },
@@ -341,7 +341,7 @@ export const servicesDatabase = {
     ],
     paymentTerms: [
       <>
-      Monthly services invoiced on the 1st of the month, due within 5 days. The System Build and System Overhaul are billed in full upfront. <i>Need pricing for clients in Nigeria or select African markets? <Link href="/contat">Contact me</Link> for localised rates.</i>
+      Monthly services invoiced on the 1st of the month, due within 5 days. The System Build and System Overhaul are billed in full upfront. <i>Need pricing for clients in Nigeria or select African markets? <Link href="/contact">Contact me</Link> for localised rates.</i>
       </>,
     ], 
     contentSections: [
@@ -363,7 +363,7 @@ export const servicesDatabase = {
           </>,
 
           <>
-            If you also need broader operational support, research, task management, process design, or automation beyond what this service covers, my <Link href="/services/social-inbox">Operations & Executive Support</Link> handles that side of your business.
+            If you also need broader operational support, research, task management, process design, or automation beyond what this service covers, my <Link href="/services/operations-support">Operations & Executive Support</Link> handles that side of your business.
           </>
         ]
       }
@@ -536,7 +536,7 @@ export const servicesDatabase = {
     ],
     paymentTerms: [
       <>
-      Monthly services invoiced on the 1st of the month, due within 5 days. Inbox Audit & Reset and Inbox Overhaul are billed in full upfront. <i>Need pricing for clients in Nigeria or select African markets? <Link href="/contat">Contact me</Link> for localised rates.</i>
+      Monthly services invoiced on the 1st of the month, due within 5 days. Inbox Audit & Reset and Inbox Overhaul are billed in full upfront. <i>Need pricing for clients in Nigeria or select African markets? <Link href="/contact">Contact me</Link> for localised rates.</i>
       </>,
     ], 
     contentSections: [
@@ -752,7 +752,7 @@ export const servicesDatabase = {
           </>,
 
           <>
-            I also manage <Link href="/">client communications</Link>, <Link href="/">customer service</Link>, <Link href="/">customer service</Link>, and social media inboxes for clients who need support across more than one front.
+            I also manage <Link href="/services/client-communications">client communications</Link>, <Link href="/services/customer-service">customer service</Link>, <Link href="/services/social-media">social media inboxes</Link>, and social media inboxes for clients who need support across more than one front.
           </>
         ]
       }
