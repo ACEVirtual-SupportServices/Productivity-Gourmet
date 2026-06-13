@@ -4,9 +4,8 @@ export const aboutData = {
     title: "So you can indulge in your favorite activities without guilt or worry.",
     // We break the prose into an array so the UI can map <p> tags and stagger the scroll reveals
     bio: [
-      "I am based in the EMEA region, and I help service providers, executives, and creators stop losing ground to operational chaos. Not with theory, but with systems that actually hold up when you step away from your desk.",
-      "Everything I know is self-taught. I figured out productivity systems because I had to. No one teaches you how to manage 200 DMs a week, keep five clients happy simultaneously, or build a communications infrastructure that does not collapse the moment you step away from your desk.",
-      "So I built systems, tested them, broke them, and rebuilt them until they worked. And I am still building, testing, and breaking, because your business deserves systems that evolve with it, not ones stuck in 2019."
+      "I am based in the EMEA region, and I help service providers, executives, and creators stop losing ground to operational chaos. Not with theory, with systems that actually hold up when you are exhausted, overbooked, or simply trying to have a life outside your business.",
+      "Everything I know is self-taught. I figured out productivity systems because I had to. No one teaches you how to manage 200 DMs a week, keep five clients happy simultaneously, or build a communications infrastructure that does not collapse the moment you step away from your desk. So I built systems, tested them, broke them, and rebuilt them until they worked. And I am still building, testing, and breaking, because your business deserves systems that evolve with it, not ones stuck in 2019."
     ],
     quote: "The moment you realise you can actually take a Wednesday off without panicking? That is what I am here for. Not productivity theatre but actual operational freedom."
   },
@@ -28,24 +27,24 @@ export const aboutData = {
     },
     {
       id: 'cap-2',
-      title: "Customer Service Operations",
-      description: "Building and running customer service systems for high-volume businesses. Airtable-based CRM builds, response templates in your brand voice, escalation frameworks, and ongoing management.",
+      title: "Customer Service Management",
+      description: "Building and running customer service systems for high-volume businesses. Airtable-based CRM builds, response templates in your brand voice, escalation frameworks, and ongoing management, so your customers feel looked after without your constant involvement.",
       icon: <svg viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>,
       href: "/services/customer-service"
     },
     {
       id: 'cap-3',
       title: "Social Media Inbox Management",
-      description: "DM and inbox management for creators and influencers. Sorting brand deals from fan noise, responding in your voice, and making sure no collaboration offer disappears into the backlog.",
+      description: "DM and inbox management for creators and influencers. Sorting brand deals from fan noise, responding in your voice, and making sure no collaboration offer disappears into the backlog, across Instagram, Facebook, TikTok, LinkedIn, Threads, YouTube, and Twitter/X.",
       icon: <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" /></svg>,
-      href: "/services/social-inbox"
+      href: "/services/social-media"
     },
     {
       id: 'cap-4',
-      title: "AI-Assisted Virtual Support",
-      description: "Research, documentation, task management, process design, and automation — built around your specific business using AI tools where they add speed and accuracy, and human judgment where required.",
+      title: "Operations & Executive Support",
+      description: "End-to-end operations support built around how your business actually runs. Systems design, workflow management, process optimisation, CRM operations, documentation and automation. I handle the operational layer so you can focus on growth. At the executive level, I operate as a strategic partner with real authority over your backend.",
       icon: <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" /></svg>,
-      href: "/services/virtual-assistant"
+      href: "/services/operations-support"
     }
   ],
 
@@ -53,17 +52,17 @@ export const aboutData = {
     {
       number: "01",
       title: "Your Secrets Stay Secret",
-      description: "You are trusting me with your inbox, your customer conversations, and sometimes your most sensitive business information. I use a password manager, advocate for delegated access instead of shared credentials, work exclusively from a desktop, and sign a confidentiality agreement. Discretion is not optional. It is the foundation."
+      description: "You are trusting me with your inbox, your customer conversations, sometimes your most sensitive business information. I use a password manager, push for delegated access over shared credentials, work exclusively from a desktop, and sign a confidentiality agreement before any work begins. Discretion is not optional: it is the foundation."
     },
     {
       number: "02",
       title: "I Actually Communicate",
-      description: "You will not have to chase me down wondering what is happening. Updates arrive when they matter, problems are flagged before they become yours to solve, and honest conversations happen when something needs adjusting. Proactive communication is part of the service, not a bonus."
+      description: "You will not have to chase me down wondering what is happening. Updates when they matter, problems flagged before they become yours to solve, and honest conversations when something needs adjusting. Proactive communication is part of the service: not a bonus."
     },
     {
       number: "03",
       title: "It Gets Done Right",
-      description: "Your brand voice stays your brand voice. Your customers receive the same care you would give them. Your systems are built around how you actually work, not borrowed from a template. No shortcuts, no approximations, just professional execution that does not require micromanagement."
+      description: "Your brand voice stays your brand voice. Your customers get the same care you would give them. Your systems are built around how you actually work, not borrowed from a template. No shortcuts, no approximations. Just professional execution you do not have to micromanage."
     }
   ],
 

@@ -2,6 +2,7 @@ import { getPosts } from "@/lib/api";
 import CategoryFilter from "@/components/blog/CategoryFilter";
 import PublicHeader from "@/components/public/PublicHeader";
 import PublicFooter from "@/components/public/PublicFooter";
+import CTA from "@/components/public/CTA";
 
 export const metadata = {
   title: "The Plog | Productivity Gourmet",
@@ -40,6 +41,12 @@ export default async function PlogPage() {
       <section aria-label="Blog posts" style={{ padding: '4rem 1.5rem', maxWidth: '1200px', margin: '0 auto' }}>
         <CategoryFilter categories={CATEGORIES} allPosts={posts} />
       </section>
+      <CTA 
+        title="If Something Here Landed"
+        description="Your inbox, your systems, your communications, that is exactly where I work. Book a Fit Call and I will figure out what needs fixing first."
+        buttonText="Book a Fit Call"
+        buttonHref="/contact"
+      />
       <PublicFooter/>
     </main>
   );

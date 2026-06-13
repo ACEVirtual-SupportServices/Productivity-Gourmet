@@ -11,6 +11,7 @@ from app.api.comments import router as comments_router
 from app.api.views import router as views_router
 from app.api.admin_analytics import router as admin_analytics_router
 from app.api.admin_posts import router as admin_posts_router
+from app.api.contact import router as contact_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -43,6 +44,7 @@ app.include_router(comments_router, prefix="/api/comments", tags=["Comments"])
 app.include_router(views_router, prefix="/api", tags=["Analytics"])
 app.include_router(admin_analytics_router, prefix="/api/admin/analytics", tags=["Admin Analytics"])
 app.include_router(admin_posts_router, prefix="/api/admin/posts", tags=["Admin Posts"])
+app.include_router(contact_router, prefix="/api/contact", tags=["Contact"])
 
 @app.get("/")
 async def root():

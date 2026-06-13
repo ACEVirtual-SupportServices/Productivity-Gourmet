@@ -15,6 +15,9 @@ class Settings(BaseSettings):
     JWT_SECRET_KEY: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7
 
+    RESEND_API_KEY: str
+    CONTACT_RECIPIENT_EMAIL: str
+
     FRONTEND_URL: str | None = None
 
     model_config = SettingsConfigDict(
