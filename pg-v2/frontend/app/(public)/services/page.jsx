@@ -148,8 +148,8 @@ export default function ServicesIndex() {
 
       {/* REUSED CTA WITH DYNAMIC COPY */}
       <CTA 
-        title="Not sure where to begin?"
-        description="We can figure out exactly where the pressure points are on a quick 15-minute diagnostic call."
+        title="Not Sure Which Service You Need?"
+        description="That is what the Fit Call is for. Tell me where the pressure is and I will tell you which service or combination of services makes sense for your business right now."
         buttonText="Book a Fit Call"
         buttonHref="/contact"
       />
