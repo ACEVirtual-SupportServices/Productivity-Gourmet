@@ -52,8 +52,8 @@ export default function FaqPage() {
       {/* REUSED GLOBAL CTA */}
       <CTA 
         title="Still have questions?"
-        description="We can clear up any specifics about your unique situation on a quick alignment call."
-        buttonText="Book a nice Call"
+        description="If something is not covered here, the Fit Call is the right place to ask it."
+        buttonText="Book a fit Call"
         buttonHref="/contact"
       />
     </>
