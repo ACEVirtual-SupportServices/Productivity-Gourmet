@@ -17,16 +17,16 @@ export default function CTA({ data, title, description, buttonText, buttonHref }
         <div className={styles.inner}>
           
           <ScrollReveal direction="up" delay={0}>
-            <h2 className={styles.title}>{title}</h2>
+            <h2 className={styles.title}>{resolvedTitle}</h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={150}>
-            <p className={styles.description}>{description}</p>
+            <p className={styles.description}>{resolvedDescription}</p>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={300} className={styles.action}>
-            <Button href={buttonHref} variant="inverse">
-              {buttonText}
+            <Button href={resolvedButtonHref} variant="inverse">
+              {resolvedButtonText}
             </Button>
           </ScrollReveal>
           
