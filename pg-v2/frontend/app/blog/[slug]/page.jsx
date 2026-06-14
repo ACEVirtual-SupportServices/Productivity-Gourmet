@@ -11,15 +11,21 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
 
-  if (!post) return { title: "Post Not Found | Productivity Gourmet" };
+  if (!post) return { title: "Post Not Found" };
 
   return {
-    title: `${post.title} | Productivity Gourmet`,
+    title: post.title, 
     description: post.summary,
     openGraph: {
       title: post.title,
       description: post.summary,
-      images: post.cover_image ? [post.cover_image] : [],
+      url: `/blog/${post.slug}`,
+      // Use the cover image if it exists, otherwise fall back to the default brand card
+      images: post.cover_image 
+        ? [{ url: post.cover_image }] 
+        : [{ url: "/og-default.png" }],
+      type: "article",
+      publishedTime: post.created_at, // Tells search engines exactly when this was published
     }
   };
 }
