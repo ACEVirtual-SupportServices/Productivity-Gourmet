@@ -6,6 +6,7 @@ import CommentSection from "@/components/blog/CommentSection";
 import ViewTracker from "@/components/blog/ViewTracker";
 import PublicHeader from "@/components/public/PublicHeader";
 import PublicFooter from "@/components/public/PublicFooter";
+import ShareButton from "@/components/blog/ShareButton";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -20,12 +21,21 @@ export async function generateMetadata({ params }) {
       title: post.title,
       description: post.summary,
       url: `/blog/${post.slug}`,
-      // Use the cover image if it exists, otherwise fall back to the default brand card
-      images: post.cover_image 
-        ? [{ url: post.cover_image }] 
-        : [{ url: "/og-default.png" }],
+      // images: post.cover_image 
+      //   ? [{ url: post.cover_image }] 
+      //   : [{ url: "/og-default.png" }],
+      images: post.cover_image
+      ? [{ url: post.cover_image }]
+      : [
+          {
+            url: "https://placehold.co/1200x630/121A1A/007575.png?text=Productivity+Gourmet",
+            width: 1200,
+            height: 630,
+            alt: "Productivity Gourmet - Operations & Client Communications",
+          },
+        ],
       type: "article",
-      publishedTime: post.created_at, // Tells search engines exactly when this was published
+      publishedTime: post.created_at,
     }
   };
 }
@@ -84,6 +94,9 @@ export default async function BlogPostPage({ params }) {
           className={styles.content}
           dangerouslySetInnerHTML={{ __html: post.content }}
         />        
+        <div className={styles.actions}>
+          <ShareButton title={post.title} />
+        </div>
       </article>
       <CommentSection postId={post.id} />
       <PublicFooter />

@@ -1,0 +1,33 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.shareButton {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  background-color: var(--color-bg-soft);
+  color: var(--color-body);
+  border: 1px solid var(--color-border);
+  border-radius: $border-radius;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
