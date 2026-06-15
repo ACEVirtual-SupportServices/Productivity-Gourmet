@@ -21,7 +21,7 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000"),
   
   title: {
     default: "Productivity Gourmet",
@@ -35,7 +35,6 @@ export const metadata = {
   },
   manifest: "/site.webmanifest",
 
-  // 4. OPEN GRAPH (For LinkedIn, Facebook, iMessage, Slack)
   openGraph: {
     title: "Productivity Gourmet",
     description: "Operational support for service providers, executives, and creators.",
@@ -53,7 +52,6 @@ export const metadata = {
     type: "website",
   },
   
-  // 5. TWITTER 
   twitter: {
     card: "summary_large_image",
     title: "Productivity Gourmet",
@@ -61,29 +59,6 @@ export const metadata = {
     images: ["https://placehold.co/1200x630/121A1A/007575.png?text=Productivity+Gourmet"], 
   },
   
-  // openGraph: {
-  //   title: "Productivity Gourmet",
-  //   description: "Operational support for service providers, executives, and creators.",
-  //   url: "/",
-  //   siteName: "Productivity Gourmet",
-  //   images: [
-  //     {
-  //       url: "/og-default.png",
-  //       width: 1200,
-  //       height: 630,
-  //       alt: "Productivity Gourmet - Operations & Client Communications",
-  //     },
-  //   ],
-  //   locale: "en_GB",
-  //   type: "website",
-  // },
-  
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: "Productivity Gourmet",
-  //   description: "Operational support for service providers, executives, and creators.",
-  //   images: ["/og-default.png"], 
-  // },
 };
 
 export default function RootLayout({ children }) {
