@@ -1,4 +1,5 @@
 import hashlib
+from urllib.parse import urlparse
 from datetime import datetime, timedelta, timezone
 from fastapi import APIRouter, Depends, Request, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -7,11 +8,17 @@ from sqlalchemy import select
 from app.core.database import get_db
 from app.models.post import Post
 from app.models.post_view import PostView
+from app.schemas.views import ViewPayload
 
 router = APIRouter()
 
 @router.post("/posts/{slug}/view")
-async def track_post_view(slug: str, request: Request, db: AsyncSession = Depends(get_db)):
+async def track_post_view(
+    slug: str, 
+    payload: ViewPayload,
+    request: Request, 
+    db: AsyncSession = Depends(get_db)
+):
     if request.cookies.get("access_token"):
         return {"tracked": False, "reason": "admin_ignored"}
 
@@ -40,12 +47,25 @@ async def track_post_view(slug: str, request: Request, db: AsyncSession = Depend
     if dup_result.scalar_one_or_none():
         return {"tracked": False, "reason": "duplicate_prevented"}
 
-    referrer = request.headers.get("referer", "Direct")
+    raw_referrer = payload.referrer
+    clean_referrer = "Direct"
+
+    if raw_referrer and raw_referrer != "Direct":
+        try:
+            parsed_url = urlparse(raw_referrer)
+            domain = parsed_url.netloc.replace("www.", "")
+            
+            if "productivitygourmet.com" in domain or "localhost" in domain:
+                clean_referrer = "Internal"
+            else:
+                clean_referrer = domain if domain else "Direct"
+        except Exception:
+            clean_referrer = "Direct"
     
     new_view = PostView(
         post_id=post.id,
         ip_hash=ip_hash,
-        referrer=referrer,
+        referrer=clean_referrer,
         user_agent=user_agent
     )
     
