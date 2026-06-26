@@ -38,13 +38,11 @@ def do_run_migrations(connection) -> None:
         context.run_migrations()
 
 async def run_async_migrations() -> None:
-    """In this scenario we need to create an Engine
-    and associate a connection with the context.
-    """
     configuration = config.get_section(config.config_ini_section)
     
-    # 3. THE CRITICAL OVERRIDE: Tell Alembic to use our environment variable
-    configuration["sqlalchemy.url"] = settings.DATABASE_URL
+    # Strip query params asyncpg can't handle (sslmode, channel_binding)
+    url = settings.DATABASE_URL.split("?")[0]
+    configuration["sqlalchemy.url"] = url
 
     connectable = async_engine_from_config(
         configuration,
@@ -56,6 +54,26 @@ async def run_async_migrations() -> None:
         await connection.run_sync(do_run_migrations)
 
     await connectable.dispose()
+
+# async def run_async_migrations() -> None:
+#     """In this scenario we need to create an Engine
+#     and associate a connection with the context.
+#     """
+#     configuration = config.get_section(config.config_ini_section)
+    
+#     # 3. THE CRITICAL OVERRIDE: Tell Alembic to use our environment variable
+#     configuration["sqlalchemy.url"] = settings.DATABASE_URL
+
+#     connectable = async_engine_from_config(
+#         configuration,
+#         prefix="sqlalchemy.",
+#         poolclass=pool.NullPool,
+#     )
+
+#     async with connectable.connect() as connection:
+#         await connection.run_sync(do_run_migrations)
+
+#     await connectable.dispose()
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode."""
