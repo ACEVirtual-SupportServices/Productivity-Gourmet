@@ -150,11 +150,11 @@ export const servicesDatabase = {
         ]
       }
     ], 
-    paymentTerms: [
-      <>
-      Monthly services invoiced on the 1st of the month, due within 5 days. One-time packages are billed in full upfront. All plans cover your primary business inbox. Additional inboxes or email accounts: +$75/month per inbox for standard volume, +$150/month per inbox for high-volume accounts (5,000+ emails). Confirmed at Fit Call. Need pricing for clients in Nigeria or select African markets? <Link href="/contact">Contact me</Link> for localised rates.
-      </>,
-    ], 
+    // paymentTerms: [
+    //   <>
+    //   Monthly services invoiced on the 1st of the month, due within 5 days. One-time packages are billed in full upfront. All plans cover your primary business inbox. Additional inboxes or email accounts: +$75/month per inbox for standard volume, +$150/month per inbox for high-volume accounts (5,000+ emails). Confirmed at Fit Call. Need pricing for clients in Nigeria or select African markets? <Link href="/contact">Contact me</Link> for localised rates.
+    //   </>,
+    // ], 
     contentSections: [
       {
         heading: "Who This Service Is For",
@@ -681,7 +681,7 @@ export const servicesDatabase = {
           "Independent decision-making within agreed parameters",
           "Proactive issue identification and resolution",
           "50% deposit month one, full payment from month two",
-          "Overage at $47/hr (pre-approved)"
+          // "Overage at $47/hr (pre-approved)"
         ]
       },
       {
@@ -699,7 +699,7 @@ export const servicesDatabase = {
           "Project management oversight",
           "Monthly operational strategy session",
           "50% deposit month one, full payment from month two",
-          "Overage at $47/hr (pre-approved)"
+          // "Overage at $47/hr (pre-approved)"
         ]
       },
     ],
@@ -713,7 +713,7 @@ export const servicesDatabase = {
     ],
     paymentTermsII: [
       <>
-        <strong>Executive VA Payment Terms</strong>
+        {/* <strong>Executive VA Payment Terms</strong> */}
         First month begins with a 50% deposit. From the second month onward, full payment is due on the 1st, within 5 days. The Extra Course, if elected, is paid alongside your retainer. Additional hours at $47/hr must be pre-approved before being worked.
       </>
     ],
@@ -768,10 +768,10 @@ export const servicesDatabase = {
         question: "What is The Extra Course add-on?",
         answer: "The Extra Course is a structured 20-hour monthly block available exclusively to Executive VA retainer clients. It is elected in advance and paid alongside your retainer, reserving that additional capacity specifically for your business. Unused hours carry over once and expire at the end of the following month. It is not ad-hoc overage; it is a committed extension of your retainer."
       },
-      {
-        question: "Is the $47/hr overage rate available to Operations Support clients?",
-        answer: "No. The $47/hr rate applies exclusively to Executive VA retainer clients who need additional hours beyond their package. Operations Support packages carry an overage rate of $35/hr."
-      },
+      // {
+      //   question: "Is the $47/hr overage rate available to Operations Support clients?",
+      //   answer: "No. The $47/hr rate applies exclusively to Executive VA retainer clients who need additional hours beyond their package. Operations Support packages carry an overage rate of $35/hr."
+      // },
       {
         question: "Do you create social media content or graphics?",
         answer:

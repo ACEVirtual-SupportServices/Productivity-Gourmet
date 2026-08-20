@@ -12,11 +12,10 @@ const BUDGET_OPTIONS = [
 ];
 
 const SERVICE_OPTIONS = [
-  "Virtual / Executive Assistance",
   "Client Communications",
-  "Operations Support",
-  "Social Media Management",
-  "Systems & Process Setup",
+  "Customer Service",
+  "Social Media Inbox Management",
+  "Operations & Executive Support",
   "Not sure — I need guidance",
 ];
 
