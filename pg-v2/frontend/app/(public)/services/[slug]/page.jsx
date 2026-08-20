@@ -110,7 +110,7 @@ export default async function ServicePage({ params }) {
         {service.paymentTerms && (
           <ScrollReveal direction="up" delay={200}>
             <div className={styles.paymentTerms}>
-              <strong>The Extra Course: Executive Add-On</strong>
+              <strong>Payment Terms</strong>
 
               {service.paymentTerms?.map((term, idx) => (
                 <p key={idx}>{term}</p>

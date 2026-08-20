@@ -655,9 +655,9 @@ export const servicesDatabase = {
     
     monthlyTerms: (
         <p>
-          <strong>
+          {/* <strong>
             Payment Terms:  
-          </strong> 
+          </strong>  */}
              Monthly services invoiced on the 1st of the month, due within 5 days. Additional hours beyond your monthly allocation are billed at $35/hr and must be pre-approved before being worked. <i>Need pricing for clients in Nigeria or select African markets? <Link href="/contact">Contact me</Link> for localised rates.</i>
         </p>
     ),
