@@ -15,14 +15,14 @@ export async function generateMetadata({ params }) {
   if (!post) return { title: "Post Not Found" };
 
   return {
-    title: post.title, 
+    title: post.title,
     description: post.summary,
     openGraph: {
       title: post.title,
       description: post.summary,
       url: `/blog/${post.slug}`,
-      // images: post.cover_image 
-      //   ? [{ url: post.cover_image }] 
+      // images: post.cover_image
+      //   ? [{ url: post.cover_image }]
       //   : [{ url: "/og-default.png" }],
       images: post.cover_image
       ? [{ url: post.cover_image }]
@@ -35,7 +35,8 @@ export async function generateMetadata({ params }) {
           },
         ],
       type: "article",
-      publishedTime: post.created_at,
+      // CHANGED: use the go-live date, fall back to creation date for old posts
+      publishedTime: post.published_at ?? post.created_at,
     }
   };
 }
@@ -46,6 +47,9 @@ export default async function BlogPostPage({ params }) {
 
   if (!post) notFound();
 
+  // CHANGED: the date readers see is when the post went live, not when it was written.
+  const shownDate = post.published_at ?? post.created_at;
+
   return (
     <main id="main-content">
       {/* The invisible tracker fires the API request on load */}
@@ -53,14 +57,16 @@ export default async function BlogPostPage({ params }) {
       <PublicHeader />
 
       <article className={styles.article} aria-labelledby="post-heading">
-        
+
         <header className={styles.header}>
           <div className={styles.meta}>
             <span className={styles.category}>{post.category}</span>
             <span aria-hidden="true">·</span>
-            <time dateTime={post.created_at}>
-              {new Date(post.created_at).toLocaleDateString("en-GB", {
-                day: "numeric", month: "long", year: "numeric"
+            {/* CHANGED: shownDate + fixed timezone (the server runs in UTC, which shifted dates near midnight) */}
+            <time dateTime={shownDate}>
+              {new Date(shownDate).toLocaleDateString("en-GB", {
+                day: "numeric", month: "long", year: "numeric",
+                timeZone: "Africa/Lagos",
               })}
             </time>
             <span aria-hidden="true">·</span>
@@ -73,27 +79,27 @@ export default async function BlogPostPage({ params }) {
 
         {post.cover_image && (
           <div className={styles.cover} aria-hidden="true">
-             <Image 
-               src={post.cover_image} 
-               alt="" 
-               fill 
+             <Image
+               src={post.cover_image}
+               alt=""
+               fill
                className={styles.coverImg}
-               sizes="(max-width: 768px) 100vw, 800px" 
-               priority 
+               sizes="(max-width: 768px) 100vw, 800px"
+               priority
              />
           </div>
         )}
 
-        {/* CRITICAL: dangerouslySetInnerHTML 
-          Because the admin will be writing posts using a rich text editor (Tiptap), 
+        {/* CRITICAL: dangerouslySetInnerHTML
+          Because the admin will be writing posts using a rich text editor (Tiptap),
           the content is saved in the database as raw HTML strings (e.g., "<p>Hello <strong>world</strong></p>").
-          React escapes HTML by default to prevent cross-site scripting (XSS). 
+          React escapes HTML by default to prevent cross-site scripting (XSS).
           This property tells React: "I trust this HTML, render it as actual DOM nodes."
         */}
         <div
           className={styles.content}
           dangerouslySetInnerHTML={{ __html: post.content }}
-        />        
+        />
         <div className={styles.actions}>
           <ShareButton title={post.title} />
         </div>

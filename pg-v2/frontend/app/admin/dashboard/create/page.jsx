@@ -11,6 +11,7 @@ const CATEGORIES = ["Operations", "Client Communications", "Systems", "Mindset",
 export default function CreatePostPage() {
   const router = useRouter();
   const fileInputRef = useRef(null);
+  const submittingRef = useRef(false); // blocks double-clicks before React re-renders the disabled button
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -71,12 +72,15 @@ export default function CreatePostPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (submittingRef.current) return;
+    submittingRef.current = true;
     setLoading(true);
     setError("");
 
     if (!content || content === "<p></p>") {
       setError("Post content cannot be empty.");
       setLoading(false);
+      submittingRef.current = false;
       return;
     }
 
@@ -110,6 +114,7 @@ export default function CreatePostPage() {
       
     } catch (err) {
       setError(err.message);
+      submittingRef.current = false;
     } finally {
       setLoading(false);
     }

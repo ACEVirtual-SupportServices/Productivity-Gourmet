@@ -19,6 +19,7 @@ class Post(Base):
     is_archived: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     analytics_public: Mapped[bool] = mapped_column(Boolean, default=False)
     scheduled_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    published_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), onupdate=func.now())
 
