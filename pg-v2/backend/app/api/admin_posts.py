@@ -5,8 +5,9 @@ from fastapi import HTTPException
 from app.schemas import PostUpdate
 
 from app.core.database import get_db
+from app.core.publishing import sync_publish_state
 from app.models.post import Post
-from app.api.auth import get_current_admin 
+from app.api.auth import get_current_admin
 
 router = APIRouter()
 
@@ -25,17 +26,6 @@ async def get_all_admin_posts(
     result = await db.execute(stmt)
     return result.scalars().all()
 
-# @router.get("")
-# async def get_all_admin_posts(
-#     db: AsyncSession = Depends(get_db),
-#     admin: str = Depends(get_current_admin)
-# ):
-#     """Admin ONLY: Fetches all posts (drafts, scheduled, published)."""
-#     stmt = select(Post).order_by(Post.created_at.desc())
-#     result = await db.execute(stmt)
-    
-#     return result.scalars().all()
-
 @router.get("/{post_id}")
 async def get_single_admin_post(
     post_id: str,
@@ -45,7 +35,7 @@ async def get_single_admin_post(
     stmt = select(Post).where(Post.id == post_id)
     result = await db.execute(stmt)
     post = result.scalar_one_or_none()
-    
+
     if not post:
         raise HTTPException(status_code=404, detail="Post not found")
     return post
@@ -60,13 +50,17 @@ async def update_admin_post(
     stmt = select(Post).where(Post.id == post_id)
     result = await db.execute(stmt)
     post = result.scalar_one_or_none()
-    
+
     if not post:
         raise HTTPException(status_code=404, detail="Post not found")
 
-    update_data = post_data.dict(exclude_unset=True)
+    update_data = post_data.model_dump(exclude_unset=True)
+    was_published = post.is_published
+
     for key, value in update_data.items():
         setattr(post, key, value)
+
+    sync_publish_state(post, was_published=was_published, schedule_sent="scheduled_at" in update_data)
 
     await db.commit()
     await db.refresh(post)
