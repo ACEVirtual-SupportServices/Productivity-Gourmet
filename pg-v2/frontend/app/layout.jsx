@@ -1,6 +1,6 @@
 import { Playwrite_GB_S, Syne, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "../styles/globals.scss";
 
 const fontHeading = Playwrite_GB_S({
@@ -77,11 +77,15 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${fontSans.variable} ${fontHeading.variable} ${fontMono.variable}`}
     >
+      {/* Tag Manager now owns Google Analytics (the G-K29156K1NJ tag lives inside the GTM container).
+          Production only, so local testing is never tracked. Admin pages are excluded inside GTM. */}
+      {process.env.NODE_ENV === "production" && (
+        <GoogleTagManager gtmId="GTM-WSSJ8J48" />
+      )}
+
       <body suppressHydrationWarning>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
-
-      <GoogleAnalytics gaId="G-K29156K1NJ" />
     </html>
   );
 }
