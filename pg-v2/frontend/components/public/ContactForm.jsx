@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { sendGTMEvent } from "@next/third-parties/google";
 import styles from "./ContactForm.module.scss";
 
 const BUDGET_OPTIONS = [
@@ -51,6 +52,11 @@ export default function ContactForm() {
         const data = await res.json();
         throw new Error(data.detail || "Something went wrong.");
       }
+
+      // Count this as a conversion in Tag Manager. Analytics must never break the form.
+      try {
+        sendGTMEvent({ event: "Contact form filled" });
+      } catch {}
 
       setStatus("success");
     } catch (err) {
